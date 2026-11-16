@@ -1,0 +1,18 @@
+{
+  "name": "leppington-grocery",
+  "private": true,
+  "type": "module",
+  "description": "Leppington Nepalese and Indian Grocery online shop (Cloudflare Pages + Supabase + Square)",
+  "scripts": {
+    "import": "node scripts/import-products.mjs",
+    "dev": "wrangler pages dev docs",
+    "deploy": "wrangler pages deploy docs --project-name leppington-shop"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

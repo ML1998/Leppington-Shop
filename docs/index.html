@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Nepalese and Indian groceries in Leppington: fresh produce, halal meat, fridge and freezer goods. Same-day delivery before 5pm and Click & Collect in 5 minutes.">
+<meta name="theme-color" content="#0f766e">
+<meta property="og:title" content="Leppington Nepalese and Indian Grocery">
+<meta property="og:description" content="Same-day delivery before 5pm and Click &amp; Collect in 5 minutes.">
+<meta property="og:url" content="https://leppington.shop/">
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+<title>Leppington Nepalese and Indian Grocery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: maroon store header, white category bar with fulfilment selector, supermarket catalogue (sidebar filters + dense product grid), cart drawer, full checkout page. Single light retail theme by choice. */
+:root{
+  color-scheme:light;
+  --brand:#0f766e; --brand-dk:#0b5753; --brand-ink:#ffffff;
+  --act:#0f766e;
+  --special:#ff6b57; --special-ink:#1d1d1f;
+  --ink:#1d1d1f; --ink-2:#4a4a4f; --muted:#6e6e73;
+  --page:#f3f6f5; --card:#ffffff; --line:#dfe6e4; --line-2:#c8d3d0; --tint:#f5f9f8;
+  --ok:#0f7a3d; --ok-soft:#e6f4ec; --cold:#1f5fbf; --cold-soft:#e8f0fb; --warn-soft:#fff6d6;
+  --f-head:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:8px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--page);color:var(--ink)}
+body{font-family:var(--f-body);font-size:15px;line-height:1.45;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--brand)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+a{color:inherit}
+:focus-visible{outline:3px solid #ff6b57;outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--f-head);margin:0;text-wrap:balance;letter-spacing:.005em}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.util{background:var(--brand-dk);color:#d3ecea;font-size:12.5px}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:6px}
+.util nav{display:flex;gap:18px}
+.util button{color:inherit;font-size:12.5px}
+.util button:hover{color:#fff;text-decoration:underline}
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:40}
+.hdr-main{background:var(--brand);color:var(--brand-ink)}
+.hdr-main .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo .mark{flex:none}
+.logo .lw{display:flex;flex-direction:column}
+.logo .w{font-family:var(--f-head);font-weight:800;font-size:28px;letter-spacing:.02em}
+.logo .w i{font-style:normal;color:#ff8a73}
+.logo .t{font-size:10.5px;letter-spacing:.14em;color:#ffc2b6 !important;text-transform:uppercase;margin-top:4px;color:#d3ecea;font-weight:600}
+.srch{display:flex;background:#fff;border-radius:var(--r);overflow:hidden;max-width:720px;width:100%;justify-self:center}
+.srch input{flex:1;min-width:0;border:0;padding:0 14px;height:46px;color:var(--ink);outline:none;font-size:15px}
+.srch button{width:52px;display:grid;place-items:center;color:var(--brand);border-left:1px solid var(--line)}
+.hdr-act{display:flex;gap:6px;align-items:center}
+.hbtn{display:flex;align-items:center;gap:8px;color:#fff;padding:8px 10px;border-radius:var(--r);font-weight:600;font-size:14px}
+.hbtn:hover{background:rgba(255,255,255,.1)}
+.cartb{background:#fff;color:var(--brand);padding:9px 14px}
+.cartb:hover{background:#fff}
+.cartb .ct{background:var(--brand);color:#fff;border-radius:10px;min-width:20px;height:20px;font-size:12px;display:grid;place-items:center;padding:0 5px}
+.cartb .amt{font-family:var(--f-head);font-size:18px;font-weight:700}
+
+.catbar{background:var(--card);border-bottom:1px solid var(--line)}
+.catbar .wrap{display:flex;align-items:stretch;gap:4px;min-height:50px}
+.browse{display:flex;align-items:center;gap:8px;font-weight:700;padding:0 14px 0 0;border-right:1px solid var(--line);margin-right:6px;white-space:nowrap}
+.browse svg{transition:transform .2s}
+.browse[aria-expanded="true"] svg{transform:rotate(180deg)}
+.links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.links::-webkit-scrollbar{display:none}
+.links a{display:flex;align-items:center;padding:0 12px;text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap;border-bottom:3px solid transparent}
+.links a:hover{color:var(--brand)}
+.links a[aria-current="page"]{border-color:var(--brand);color:var(--brand)}
+.links a.sp{color:#c2412d}
+.ful{display:flex;align-items:center;gap:10px;margin-left:auto;padding:6px 0 6px 14px;border-left:1px solid var(--line);text-align:left;white-space:nowrap}
+.ful .ic{width:34px;height:34px;border-radius:50%;background:var(--tint);display:grid;place-items:center;color:var(--brand);flex:none}
+.ful b{display:block;font-size:13.5px}
+.ful span{font-size:12.5px;color:var(--muted)}
+.ful .chg{color:var(--brand);font-weight:700;font-size:13px;text-decoration:underline}
+.mega{position:absolute;left:0;right:0;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -18px rgba(0,0,0,.25)}
+.mega .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;padding-block:22px 26px}
+.mega h4{font-size:17px;margin-bottom:8px}
+.mega h4 button{font-weight:700}
+.mega h4 button:hover{color:var(--brand)}
+.mega ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.mega li button{color:var(--ink-2);font-size:14px;text-align:left}
+.mega li button:hover{color:var(--brand);text-decoration:underline}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--r);padding:11px 18px;font-weight:700;font-size:15px}
+.btn-p{background:var(--act);color:#fff}
+.btn-p:hover{background:var(--brand-dk)}
+.btn-o{border:1.5px solid var(--ink);color:var(--ink);background:var(--card)}
+.btn-o:hover{background:var(--tint)}
+.btn-w{background:#fff;color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.lnk{color:var(--brand);font-weight:700;text-decoration:underline;font-size:14px}
+
+.hero{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;padding-block:18px}
+.car{position:relative;border-radius:var(--r);overflow:hidden;min-height:330px;background:var(--brand)}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;padding:34px 40px;opacity:0;transition:opacity .5s;pointer-events:none}
+.slide.on{opacity:1;pointer-events:auto}
+.slide h2{font-size:clamp(30px,3.6vw,48px);line-height:1;font-weight:800;margin:0 0 12px}
+.slide p{margin:0 0 20px;font-size:16px;max-width:36ch}
+.slide .art{display:flex;align-items:flex-end;justify-content:center;height:100%;min-width:0}
+.slide .art svg{width:46%;max-width:200px;height:auto;flex:none;margin:0 -4%}
+.slide .art svg:nth-child(2){width:56%;max-width:240px;position:relative;z-index:1}
+.price-burst{display:inline-flex;align-items:baseline;gap:8px;background:#1d1d1f;color:#fff;padding:6px 12px;border-radius:6px;font-family:var(--f-head);font-weight:800;margin-bottom:18px}
+.price-burst .big{font-size:34px;line-height:1}
+.dots{position:absolute;left:40px;bottom:18px;display:flex;gap:8px;z-index:2}
+.dots button{width:28px;height:5px;border-radius:3px;background:rgba(127,127,127,.45)}
+.dots button[aria-current="true"]{background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.side{display:grid;gap:16px}
+.promo{border-radius:var(--r);padding:22px;display:flex;justify-content:space-between;gap:14px;align-items:center;min-width:0}
+.promo h3{font-size:24px;line-height:1.05;margin-bottom:6px}
+.promo p{margin:0 0 12px;font-size:14px}
+.promo svg{flex:none}
+.tiles{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px;padding-block:6px 10px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-weight:700;font-size:14px;text-decoration:none}
+.tile .circ{width:100%;max-width:120px;aspect-ratio:1;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;transition:border-color .15s}
+.tile:hover .circ{border-color:var(--brand)}
+.tile .circ svg{width:78%;height:auto}
+.shelf{padding-block:22px 6px}
+.shelf-h{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px;gap:12px}
+.shelf-h h2{font-size:28px;font-weight:800}
+.shelf-h .ctrls{display:flex;gap:6px;align-items:center}
+.arr{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);background:var(--card);display:grid;place-items:center}
+.arr:hover{border-color:var(--ink)}
+.row{display:grid;grid-auto-flow:column;grid-auto-columns:200px;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:thin}
+.row > *{scroll-snap-align:start}
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-block:28px}
+.way{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:8px;align-content:start}
+.way h3{font-size:22px}
+.way p{margin:0;color:var(--ink-2);font-size:14.5px}
+.way .k{font-family:var(--f-head);font-weight:800;font-size:40px;line-height:1;color:var(--brand)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;min-width:0;position:relative;transition:box-shadow .15s}
+.card:hover{box-shadow:0 6px 20px -10px rgba(0,0,0,.25)}
+.cimg{display:block;width:100%;aspect-ratio:1/0.9;max-width:100%;padding:10px 14px 0;position:relative}
+.cimg svg,.cimg img{width:100%;height:100%;object-fit:contain;display:block}
+.tagS{position:absolute;top:10px;left:10px;background:var(--special);color:var(--special-ink);font-weight:800;font-family:var(--f-head);font-size:14px;padding:3px 8px;border-radius:4px;z-index:1;letter-spacing:.02em}
+.tagH{position:absolute;bottom:4px;left:10px;font-size:11px;font-weight:700;color:var(--ok);background:var(--ok-soft);padding:2px 6px;border-radius:4px}
+.tagN{position:absolute;top:10px;right:10px;font-size:11px;font-weight:700;color:var(--brand);background:#ffebe7;padding:2px 6px;border-radius:4px;z-index:1}
+.cb{padding:10px 12px 12px;display:flex;flex-direction:column;gap:5px;flex:1}
+.pr{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pr .now{font-family:var(--f-head);font-weight:800;font-size:28px;line-height:1;letter-spacing:-.01em}
+.pr .now sup{font-size:15px;vertical-align:9px;margin-left:1px}
+.pr .now.sale{color:#d9452f}
+.cup{font-size:12px;color:var(--muted);min-height:17px}
+.was{font-size:12.5px;color:var(--ink-2)}
+.cname{text-align:left;font-size:14px;line-height:1.3;color:var(--ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:3.9em}
+.cname:hover{text-decoration:underline}
+.cacts{margin-top:auto;display:grid;gap:6px;padding-top:4px}
+.wsel{height:34px;border:1px solid var(--line-2);border-radius:6px;background:var(--card);padding:0 8px;font-size:13.5px;width:100%}
+.addb{height:40px;border-radius:var(--r);background:var(--act);color:#fff;font-weight:700;width:100%}
+.addb:hover{background:var(--brand-dk)}
+.addb:disabled{background:var(--line);color:var(--muted);cursor:not-allowed}
+.stp{display:grid;grid-template-columns:40px 1fr 40px;align-items:center;height:40px;border:1.5px solid var(--act);border-radius:var(--r);overflow:hidden}
+.stp button{height:100%;font-size:20px;font-weight:700;color:var(--act)}
+.stp button:hover{background:var(--tint)}
+.stp span{text-align:center;font-weight:700;font-size:14px}
+
+.crumb{font-size:13px;color:var(--muted);padding-top:16px;display:flex;gap:6px;flex-wrap:wrap}
+.crumb button:hover{text-decoration:underline}
+.ph{display:flex;justify-content:space-between;align-items:end;gap:12px;padding-block:6px 14px;flex-wrap:wrap}
+.ph h1{font-size:38px;font-weight:800;line-height:1}
+.ph .cnt{color:var(--muted);font-size:14px;margin-top:4px}
+.browse-l{display:grid;grid-template-columns:240px minmax(0,1fr);gap:20px;padding-bottom:40px;align-items:start}
+.filters{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px 12px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 140px)}
+.fg{border-bottom:1px solid var(--line);padding-block:12px}
+.fg:last-child{border:0}
+.fg h4{font-size:16px;margin-bottom:8px}
+.fg label{display:flex;gap:8px;align-items:center;padding:4px 0;font-size:14px;cursor:pointer}
+.fg label span{margin-left:auto;color:var(--muted);font-size:12.5px}
+.fg input{accent-color:var(--brand);width:16px;height:16px}
+.tbar{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.tbar select{height:38px;border:1px solid var(--line-2);border-radius:6px;background:var(--card);padding:0 10px}
+.fbtn{display:none}
+.active-f{display:flex;gap:6px;flex-wrap:wrap}
+.af{border:1px solid var(--line-2);background:var(--card);border-radius:6px;padding:4px 8px;font-size:13px;display:flex;gap:6px;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:12px}
+.none{grid-column:1/-1;background:var(--card);border:1px dashed var(--line-2);border-radius:var(--r);padding:40px 20px;text-align:center;color:var(--ink-2)}
+
+.scrim{position:fixed;inset:0;background:rgba(20,16,18,.5);z-index:70;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--card);z-index:80;transform:translateX(102%);transition:transform .25s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:24px;font-weight:800}
+.xb{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--card)}
+.xb:hover{background:var(--tint)}
+.dbody{flex:1;overflow-y:auto;padding:14px 18px;display:grid;gap:14px;align-content:start}
+.dfoot{border-top:1px solid var(--line);padding:14px 18px;display:grid;gap:10px}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-48%);width:min(860px,calc(100% - 24px));max-height:calc(100% - 40px);overflow:auto;background:var(--card);border-radius:12px;z-index:85;opacity:0;pointer-events:none;transition:.2s}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal > .xb{position:absolute;right:10px;top:10px;z-index:2}
+.pd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;padding:28px}
+.pd .pimg{background:var(--tint);border-radius:var(--r);aspect-ratio:1;max-width:100%;display:grid;place-items:center;padding:20px;position:relative}
+.pd .pimg svg,.pd .pimg img{width:100%;height:100%;object-fit:contain}
+.pd .brand{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.pd h2{font-size:30px;font-weight:800;line-height:1.05;margin:4px 0 12px}
+.pd .meta{display:grid;gap:10px;margin-top:16px;font-size:14px;color:var(--ink-2)}
+.pd .meta b{color:var(--ink);display:block}
+.fm{padding:24px;display:grid;gap:14px}
+.fm h2{font-size:28px;font-weight:800;padding-right:40px}
+
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);border-radius:var(--r);overflow:hidden}
+.seg button{padding:10px;font-weight:700;font-size:14px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.days{display:flex;gap:8px;overflow-x:auto}
+.days button{flex:none;border:1px solid var(--line-2);border-radius:var(--r);padding:8px 14px;text-align:left;font-size:13px;min-width:110px}
+.days button b{display:block;font-size:15px}
+.days button[aria-pressed="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);background:#e9f5f3}
+.days button:disabled{opacity:.45;cursor:not-allowed}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.slot{border:1px solid var(--line-2);border-radius:var(--r);padding:10px 12px;text-align:left;font-size:13px;display:grid;gap:2px}
+.slot b{font-size:14.5px}
+.slot small{color:var(--muted)}
+.slot[aria-pressed="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);background:#e9f5f3}
+.field{display:grid;gap:5px}
+.field label{font-size:13.5px;font-weight:600}
+.field input,.field textarea,.field select{border:1px solid var(--line-2);border-radius:6px;padding:10px 12px;width:100%;background:var(--card)}
+.field input:focus,.field textarea:focus{border-color:var(--ink);outline:none;box-shadow:0 0 0 1px var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.three{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+.msg{font-size:13.5px;border-radius:6px;padding:10px 12px}
+.msg.ok{background:var(--ok-soft);color:var(--ok)}
+.msg.bad{background:#fdecee;color:#c2412d}
+.msg.info{background:var(--warn-soft);color:var(--ink)}
+.msg.cold{background:var(--cold-soft);color:var(--ink)}
+
+.fsum{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--tint);border-radius:var(--r);padding:10px 12px;font-size:13.5px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--ok)}
+.zh{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.cl{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.cl .th{width:56px;height:56px;background:var(--tint);border-radius:6px;padding:4px}
+.cl .th svg,.cl .th img{width:100%;height:100%;object-fit:contain}
+.cl .n{font-size:13.5px;line-height:1.3}
+.cl .m{font-size:12px;color:var(--muted)}
+.qs{display:grid;grid-template-columns:28px 26px 28px;align-items:center;border:1px solid var(--line-2);border-radius:6px;height:30px}
+.qs button{height:100%;font-weight:700}
+.qs span{text-align:center;font-weight:700;font-size:13px}
+.tots{display:grid;grid-template-columns:1fr auto;gap:5px 10px;font-size:14px}
+.tots .g{font-family:var(--f-head);font-size:24px;font-weight:800}
+
+.co{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:start;padding-block:10px 50px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:14px;min-width:0}
+.box h2{font-size:24px;font-weight:800;display:flex;gap:10px;align-items:center}
+.box h2 .n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:15px;display:grid;place-items:center;flex:none}
+.costack{display:grid;gap:14px;min-width:0}
+.sum{position:sticky;top:calc(env(safe-area-inset-top,0px) + 140px)}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:center;border:1px solid var(--line-2);border-radius:var(--r);padding:12px 14px;cursor:pointer;font-size:14.5px;flex-wrap:wrap}
+.opt:has(input:checked){border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);background:#e9f5f3}
+.opt input{accent-color:var(--brand);width:18px;height:18px;flex:none}
+.opt > span:first-of-type{flex:1;min-width:180px}
+.opt small{display:block;color:var(--muted);font-size:12.5px}
+.opt .pm{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.pmb{font-size:10.5px;font-weight:800;letter-spacing:.03em;border:1px solid var(--line-2);border-radius:4px;padding:2px 5px;color:var(--ink-2);background:var(--card);white-space:nowrap}
+.confirm{max-width:640px;margin:30px auto 60px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;display:grid;gap:16px}
+.confirm h1{font-size:40px;font-weight:800;line-height:1}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.tl div{border-top:4px solid var(--line);padding-top:8px;font-size:13px;color:var(--muted)}
+.tl div.on{border-color:var(--ok);color:var(--ink);font-weight:700}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:14px;overflow-x:auto}
+.tabs button{padding:10px 14px;font-weight:700;border-bottom:3px solid transparent;white-space:nowrap}
+.tabs button[aria-pressed="true"]{border-color:var(--brand);color:var(--brand)}
+.ord{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:6px;font-size:14px}
+.ord .t{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.st{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:4px}
+.st.new{background:#fdecee;color:#c2412d}.st.packing{background:var(--warn-soft)}.st.ready{background:var(--cold-soft);color:var(--cold)}.st.done{background:var(--ok-soft);color:var(--ok)}
+.ptab{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+.ptab table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px}
+.ptab th,.ptab td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.ptab th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.ptab .th{width:46px;height:46px}
+.ptab .th svg,.ptab .th img{width:100%;height:100%;object-fit:contain}
+.ptab input[type=number]{width:84px;border:1px solid var(--line-2);border-radius:6px;padding:6px}
+
+footer{background:var(--ink);color:#d9d9dc;margin-top:30px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px;padding-block:36px}
+footer h4{color:#fff;font-size:17px;margin-bottom:10px}
+footer p,footer li{font-size:13.5px;margin:0}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+footer button{color:inherit;text-align:left}
+footer button:hover{color:#fff;text-decoration:underline}
+footer .acc{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+footer .acc span{background:#fff;color:var(--ink);font-size:11px;font-weight:800;border-radius:4px;padding:3px 6px}
+.legal{border-top:1px solid #38383c}
+.legal .wrap{padding-block:14px 78px;font-size:12.5px;display:block;color:#9a9aa0}
+
+.mcart{display:none;position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--card);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.mcart button{width:100%;justify-content:space-between}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:11px 16px;border-radius:var(--r);font-weight:600;font-size:14px;z-index:95;opacity:0;transition:.2s;pointer-events:none;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:1100px){
+  .tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mega .wrap{grid-template-columns:repeat(3,1fr)}
+  .co{grid-template-columns:1fr}
+  .sum{position:static}
+}
+@media (max-width:900px){
+  .util .hide{display:none}
+  .hdr-main .wrap{grid-template-columns:auto 1fr;gap:12px}
+  .srch{grid-column:1/-1;order:3;max-width:none}
+  .hdr-act{justify-self:end}
+  .hbtn .lb{display:none}
+  .hero{grid-template-columns:1fr}
+  .side{grid-template-columns:1fr 1fr}
+  .browse-l{grid-template-columns:1fr}
+  .filters{display:none;position:fixed;inset:auto 0 0 0;top:auto;max-height:80%;overflow:auto;z-index:85;border-radius:12px 12px 0 0;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .filters.open{display:block}
+  .fbtn{display:inline-flex}
+  .fg.fbtn{display:block}
+  .ways{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:1fr 1fr}
+  .catbar .wrap{flex-wrap:wrap}
+  .ful{order:-1;width:100%;margin:0;border:0;border-bottom:1px solid var(--line);padding:8px 0}
+  .ful .chg{margin-left:auto}
+  .mega{max-height:70vh;overflow:auto}
+}
+@media (max-width:620px){
+  .util{display:none}
+  .car{min-height:430px}
+  .slide{grid-template-columns:1fr;align-content:start;padding:26px 22px 40px}
+  .slide .art{height:160px;position:absolute;right:8px;bottom:30px;left:35%}
+  .dots{left:22px}
+  .side{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .tile{font-size:12px}
+  .mega .wrap{grid-template-columns:1fr 1fr}
+  .row{grid-auto-columns:46%}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .pr .now{font-size:24px}
+  .pd{grid-template-columns:1fr;padding:20px}
+  .two,.three{grid-template-columns:1fr}
+  .ph h1{font-size:30px}
+  footer .wrap{grid-template-columns:1fr}
+  .mcart{display:block}
+  .confirm{padding:22px}
+  .tl{grid-template-columns:1fr 1fr}
+  .logo .w{font-size:22px}
+  .logo .t{font-size:8.5px;letter-spacing:.06em}
+  .logo .mark{width:38px;height:38px}
+  .cartb .amt{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* photo sprites and photos */
+.spr{display:block;width:100%;height:100%;background-repeat:no-repeat;background-color:#fff}
+.cimg img,.pd .pimg img{border-radius:4px}
+.lowstock{font-size:12px;font-weight:700;color:#d9452f}
+.badgeX{position:absolute;top:10px;right:10px;font-size:11px;font-weight:800;color:#fff;background:var(--ink);padding:2px 6px;border-radius:4px;z-index:1}
+.more{display:flex;justify-content:center;padding:18px 0 4px}
+.fg .scroll{max-height:260px;overflow:auto;padding-right:4px}
+.gal{display:flex;gap:8px;margin-top:10px;overflow-x:auto}
+.gal button{width:64px;height:64px;flex:none;border:1px solid var(--line-2);border-radius:6px;overflow:hidden;background:#fff;padding:3px}
+.gal button[aria-current="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand)}
+.gal img{width:100%;height:100%;object-fit:contain}
+.loadbar{background:var(--warn-soft);font-size:13px;text-align:center;padding:6px 16px}
+
+/* admin */
+.adm{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;padding-block:18px 50px;align-items:start}
+.anav{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:8px;display:grid;gap:2px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 130px)}
+.anav button{text-align:left;padding:10px 12px;border-radius:6px;font-weight:600;font-size:14.5px;display:flex;justify-content:space-between;gap:8px}
+.anav button:hover{background:var(--tint)}
+.anav button[aria-current="true"]{background:var(--ink);color:#fff}
+.anav .ct{font-size:12px;opacity:.75}
+.ahead{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.ahead h1{font-size:34px;font-weight:800;line-height:1}
+.ahead p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.atools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px;margin-bottom:10px}
+.atools input[type=search],.atools select{height:38px;border:1px solid var(--line-2);border-radius:6px;padding:0 10px;background:var(--card)}
+.atools input[type=search]{flex:1;min-width:180px}
+.bulk{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--ink);color:#fff;border-radius:var(--r);padding:8px 12px;margin-bottom:10px;font-size:14px}
+.bulk select,.bulk input{height:34px;border-radius:6px;border:0;padding:0 8px;color:var(--ink);background:#fff}
+.bulk .btn{padding:7px 12px;font-size:13.5px}
+.atab{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+.atab table{border-collapse:collapse;width:100%;min-width:860px;font-size:13.5px}
+.atab th,.atab td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.atab th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--tint);position:sticky;top:0}
+.atab tr:hover td{background:#fcfbf9}
+.atab .th{width:48px;height:48px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}
+.atab .th svg,.atab .th img{width:100%;height:100%;object-fit:contain}
+.atab input[type=checkbox]{width:16px;height:16px;accent-color:var(--brand)}
+.atab .nm{font-weight:600;max-width:340px}
+.atab .nm small{display:block;font-weight:400;color:var(--muted)}
+.pill{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:var(--tint);color:var(--ink-2);white-space:nowrap}
+.pill.on{background:var(--ok-soft);color:var(--ok)}
+.pill.off{background:#fdecee;color:#c2412d}
+.pill.sale{background:var(--special);color:var(--special-ink)}
+.pill.hid{background:#ececec;color:#55555a}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 2px;font-size:14px;flex-wrap:wrap}
+.pager .btns{display:flex;gap:6px}
+.ed{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+.ed .box h2{font-size:20px}
+.ed .side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 130px);display:grid;gap:14px}
+.edbar{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.edbar .acts{display:flex;gap:8px;flex-wrap:wrap}
+.hint{font-size:12.5px;color:var(--muted);font-weight:400}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.chk input{width:17px;height:17px;accent-color:var(--brand)}
+.chks{display:flex;gap:8px 18px;flex-wrap:wrap}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
+.phot{border:1px solid var(--line-2);border-radius:8px;overflow:hidden;background:#fff;display:grid}
+.phot .im{aspect-ratio:1;max-width:100%;padding:6px}
+.phot .im img,.phot .im svg{width:100%;height:100%;object-fit:contain}
+.phot .bar{display:flex;justify-content:space-between;border-top:1px solid var(--line);font-size:12px}
+.phot .bar button{padding:6px 8px;font-weight:700}
+.phot .bar button:hover{background:var(--tint)}
+.phot .main{font-size:10.5px;font-weight:800;text-transform:uppercase;color:var(--ok);padding:4px 8px}
+.drop{border:2px dashed var(--line-2);border-radius:8px;display:grid;place-items:center;text-align:center;padding:16px;font-size:13px;color:var(--ink-2);cursor:pointer;min-height:110px}
+.drop.over{border-color:var(--brand);background:#e9f5f3}
+.prev{max-width:240px}
+.list-ed{display:grid;gap:10px}
+.list-ed .itm{border:1px solid var(--line);border-radius:8px;padding:12px;display:grid;gap:10px;background:var(--tint)}
+.list-ed .row2{display:flex;gap:8px;flex-wrap:wrap;align-items:end}
+.list-ed .row2 .field{flex:1;min-width:140px}
+.prog{height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--ok);transition:width .2s}
+.stat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.stat div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.stat b{display:block;font-family:var(--f-head);font-size:28px;line-height:1.1}
+.stat span{font-size:12.5px;color:var(--muted)}
+@media (max-width:1000px){
+  .adm{grid-template-columns:1fr}
+  .anav{position:static;display:flex;overflow-x:auto}
+  .anav button{white-space:nowrap}
+  .ed{grid-template-columns:1fr}
+  .ed .side{position:static}
+  .stat{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+<style>html,body{margin:0}img{max-width:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="runtime.js"></script>
+
+
+<div class="util"><div class="wrap">
+  <span id="annc"></span>
+  <nav><button data-route="orders">Track my order</button><button class="hide" data-route="help">Help</button><button id="adminLink" data-route="admin" hidden>Admin</button></nav>
+</div></div>
+
+<header class="hdr">
+  <div class="hdr-main"><div class="wrap">
+    <a class="logo" href="#" aria-label="Home"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#fff"/><path d="M22 27 29 15M42 27 35 15" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/><path d="M12 26h40a2 2 0 0 1 2 2.4l-4.4 18.8A5 5 0 0 1 44.7 51H19.3a5 5 0 0 1-4.9-3.8L10 28.4A2 2 0 0 1 12 26Z" fill="#0f766e"/><path d="M24 34v10M32 34v10M40 34v10" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M45 9c6.5-.6 10.4 3.1 10 9.6C48.6 19.2 44.6 15.5 45 9Z" fill="#ff6b57"/></svg><span class="lw"><span class="w" id="logoW">LEPPINGTON</span><span class="t" id="logoT">Nepalese &amp; Indian Grocery</span></span></a>
+    <form class="srch" id="srch" role="search"><label class="sr" for="q">Search products</label><input id="q" type="search" placeholder="Search products, e.g. momo, basmati, goat" autocomplete="off"><button type="submit" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></button></form>
+    <div class="hdr-act">
+      <button class="hbtn" data-route="orders"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16l-1.5 12.5a1.5 1.5 0 0 1-1.5 1.5H7a1.5 1.5 0 0 1-1.5-1.5Z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg><span class="lb">Orders</span></button>
+      <button class="hbtn cartb" id="cartBtn" aria-label="Open cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2.5 4h2.2l2.4 11a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L20.5 8H6"/><circle cx="9.5" cy="20.3" r="1.3"/><circle cx="17" cy="20.3" r="1.3"/></svg><span class="ct num" id="cartCt">0</span><span class="amt num" id="cartAmt">$0.00</span></button>
+    </div>
+  </div></div>
+  <div class="catbar"><div class="wrap">
+    <button class="browse" id="browseBtn" aria-expanded="false" aria-controls="mega">Browse <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
+    <nav class="links" id="links" aria-label="Departments"></nav>
+    <button class="ful" id="fulBtn"><span class="ic" id="fulIc"></span><span><b id="fulT"></b><span id="fulS"></span></span><span class="chg">Change</span></button>
+  </div></div>
+  <div class="mega" id="mega" hidden><div class="wrap" id="megaIn"></div></div>
+</header>
+<div class="loadbar" id="loadbar" hidden></div>
+
+<main id="view"></main>
+
+<footer>
+  <div class="wrap">
+    <div><h4 id="ftName"></h4><p id="ftAbout"></p></div>
+    <div><h4>Shop</h4><ul id="ftShop"></ul></div>
+    <div><h4>Customer care</h4><ul><li><button data-route="orders">Track my order</button></li><li><button data-route="help">Delivery and Click &amp; Collect</button></li><li><button data-route="help">Substitutions and refunds</button></li><li><button data-route="help">Halal information</button></li></ul></div>
+    <div><h4>Contact and hours</h4><p id="ftContact"></p><div class="acc" aria-label="Payment we accept"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>EFTPOS</span><span>APPLE PAY</span><span>GOOGLE PAY</span><span>PAYID</span><span>CASH</span></div></div>
+  </div>
+  <div class="legal"><div class="wrap">© <span id="yr"></span> <span id="lgName"></span>. Prices in AUD include GST where applicable.</div></div>
+</footer>
+
+<div class="mcart" id="mcart" hidden><button class="btn btn-p" id="mcartBtn"><span><span class="num" id="mcCt">0</span> items · View cart</span><span class="num" id="mcAmt">$0.00</span></button></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true"><div class="dh"><h3>Cart</h3><button class="xb" data-close aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="dbody" id="dBody"></div><div class="dfoot" id="dFoot"></div></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Details"><button class="xb" data-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div id="mBody"></div></div>
+<div class="toast" id="toast" role="status"></div>
+<input type="file" id="filePick" hidden>
+<script>
+/* =====================================================================
+   Leppington Nepalese and Indian Grocery: storefront + admin.
+   Everything a shop owner changes (products, prices, photos, specials,
+   sections, banners, delivery rules, promo codes) is edited in the Admin
+   screen and stored in the page's database. No code edits needed.
+   ===================================================================== */
+
+/* ============ DEFAULT SETTINGS (Admin > Store settings overrides these) ============ */
+const DEF = {
+  logoText: "LEPPINGTON",
+  tagline: "Nepalese & Indian Grocery",
+  storeName: "Leppington Nepalese and Indian Grocery",
+  about: "Nepali and Indian groceries, halal meat, fridge and freezer goods. Same-day delivery before 5pm and Click & Collect in 5 minutes.",
+  phone: "0400 000 000",
+  email: "",
+  address: "Your shop address, Leppington NSW 2179",
+  announcement: "Same-day delivery on orders placed before 5pm · Click & Collect ready in 5 minutes",
+  openHour: 8, closeHour: 21, cutoffHour: 17, lateRunUntil: 20,
+  deliveryFee: 7.99, freeOver: 60, minDelivery: 25,
+  postcodes: "",
+  promos: [{code:"NAMASTE5", pct:5, firstOnly:true, active:true}],
+  sections: [
+    {id:"grocery", name:"Fresh Grocery", desc:"Vegetables, herbs and fruit for everyday Nepali and Indian cooking.", visible:true},
+    {id:"meat", name:"Meat", desc:"Halal goat, chicken, lamb and fish cut fresh to order. Pork is cut and packed separately.", visible:true},
+    {id:"dry", name:"Dry Items", desc:"Rice, atta, dal, masala, Nepali pantry, snacks, tea and pickles.", visible:true},
+    {id:"fridge", name:"Fridge", desc:"Paneer, dahi, ghee, lassi, batters, fresh roti and chilled sweets.", visible:true},
+    {id:"freezer", name:"Freezer", desc:"Momo, parathas, samosa, frozen vegetables, ice cream and kulfi.", visible:true},
+    {id:"household", name:"Household & Pooja", desc:"Pooja items, beauty, kitchen and party needs.", visible:false}
+  ],
+  hero: [
+    {title:"Order by 5pm.\nAt your door today.", text:"Same-day delivery, with chilled and frozen goods packed in insulated bags.", cta:"Start shopping", link:"dry", bg:"#0f766e", fg:"light", badge:"", products:"p25, p48, p60"},
+    {title:"Momo night,\nsorted.", text:"Chicken, buff-style or veg and paneer, made in our kitchen and frozen the same day.", cta:"Shop freezer", link:"freezer", bg:"#ff6b57", fg:"dark", badge:"$14.99 · 20 handmade momo", products:"p68, p66, p43"},
+    {title:"Fresh halal goat,\ncut to order.", text:"Curry cut bone-in, leg or sekuwa cubes. Choose 500g, 1kg or 2kg and we cut it when you order.", cta:"Shop meat", link:"meat", bg:"#134e4a", fg:"light", badge:"", products:"p17, p15"}
+  ]
+};
+let CFG = JSON.parse(JSON.stringify(DEF));
+const ZONE_OF = {grocery:"shelf", meat:"chilled", dry:"shelf", fridge:"chilled", freezer:"frozen", household:"shelf"};
+
+/* ============ STARTER RANGE (shown with drawn pack images; every field editable in Admin) ============ */
+let _n=0;
+function P(sec,sub,brand,name,size,price,o={}){ _n++; return Object.assign({id:"p"+_n,src:"builtin",sec,sub,brand,name,size,price,was:null,tags:[],perKg:false,shape:"pouch",col:"#0f766e",fill:null,lab:name,alias:"",pop:60-_n%41},o); }
+const NE="nepali", HAL="halal", VEG="veg";
+const PRODUCTS = [
+ P("grocery","Vegetables","Fresh","Green Chillies","250g",2.49,{tags:[VEG],shape:"chilli",pop:99,alias:"hari mirch khursani"}),
+ P("grocery","Vegetables","Fresh","Okra (Bhindi)","500g",4.99,{tags:[VEG],shape:"okra",alias:"ladyfinger"}),
+ P("grocery","Vegetables","Fresh","Bitter Gourd (Karela)","500g",5.49,{tags:[VEG],shape:"gourd",alias:"karela"}),
+ P("grocery","Vegetables","Fresh","Mustard Greens (Rayo Saag)","Bunch",3.99,{tags:[VEG,NE],shape:"leaves",fill:"#3f8f3a",alias:"rayo saag"}),
+ P("grocery","Vegetables","Fresh","Ginger","500g",4.49,{tags:[VEG],shape:"ginger",pop:95,alias:"adrak aduwa"}),
+ P("grocery","Vegetables","Fresh","Garlic","500g",5.99,{tags:[VEG],shape:"garlic",pop:96,alias:"lasun lehsun"}),
+ P("grocery","Vegetables","Fresh","Red Onions","2kg",4.99,{tags:[VEG],shape:"round",fill:"#7b2846",pop:97,alias:"pyaj"}),
+ P("grocery","Vegetables","Fresh","Brushed Potatoes","4kg",6.49,{tags:[VEG],shape:"round",fill:"#c49a62",pop:94,alias:"aloo alu"}),
+ P("grocery","Vegetables","Fresh","White Radish (Mooli)","Each",2.99,{tags:[VEG],shape:"radish",alias:"mula"}),
+ P("grocery","Herbs & leaves","Fresh","Coriander","Bunch",1.99,{tags:[VEG],shape:"leaves",fill:"#2f8a3c",pop:98,alias:"dhaniya cilantro"}),
+ P("grocery","Herbs & leaves","Fresh","Curry Leaves","Pack",2.49,{tags:[VEG],shape:"leaves",fill:"#1f6b31",alias:"kadi patta"}),
+ P("grocery","Herbs & leaves","Fresh","Fenugreek Leaves (Methi)","Bunch",2.99,{tags:[VEG],shape:"leaves",fill:"#4c9a3d",alias:"methi"}),
+ P("grocery","Fruit","Fresh","Lemons","4 pack",3.49,{tags:[VEG],shape:"round",fill:"#efcf2e",alias:"nimbu kagati"}),
+ P("grocery","Fruit","Fresh","Kesar Mango","Each",3.99,{tags:[VEG],was:4.99,shape:"mango",alias:"aap aam"}),
+ P("meat","Goat","Halal","Goat Curry Cut Bone-In","per kg",21.99,{tags:[HAL,NE],perKg:true,shape:"tray",fill:"goat",pop:100,alias:"khasi mutton bakra"}),
+ P("meat","Goat","Halal","Goat Leg Whole","per kg",23.99,{tags:[HAL],perKg:true,shape:"tray",fill:"leg"}),
+ P("meat","Goat","Halal","Goat Sekuwa Cubes","per kg",25.99,{tags:[HAL,NE],perKg:true,shape:"tray",fill:"cube",alias:"sekuwa bbq"}),
+ P("meat","Chicken","Halal","Chicken Curry Cut Skinless","per kg",11.99,{tags:[HAL],perKg:true,shape:"tray",fill:"chicken",pop:99,alias:"kukhura"}),
+ P("meat","Chicken","Halal","Chicken Thigh Fillets","per kg",13.49,{tags:[HAL],perKg:true,was:14.99,shape:"tray",fill:"thigh"}),
+ P("meat","Chicken","Halal","Chicken Mince for Momo","per kg",12.99,{tags:[HAL,NE],perKg:true,shape:"tray",fill:"mince",alias:"keema momo"}),
+ P("meat","Chicken","Halal","Whole Chicken","per kg",8.99,{tags:[HAL],perKg:true,shape:"tray",fill:"whole"}),
+ P("meat","Lamb","Halal","Lamb Shoulder Diced","per kg",22.99,{tags:[HAL],perKg:true,shape:"tray",fill:"cube"}),
+ P("meat","Fish","Halal","Rohu Fish Steaks","per kg",17.99,{tags:[HAL],perKg:true,shape:"tray",fill:"fish",alias:"machha"}),
+ P("meat","Pork","Not halal","Pork Belly Sekuwa Cut","per kg",16.99,{tags:[NE],perKg:true,shape:"tray",fill:"pork",alias:"bangur"}),
+ P("dry","Rice & flour","India Gate","Basmati Rice Classic","5kg",22.99,{tags:[VEG],was:26.99,shape:"sack",col:"#1c3f8f",lab:"BASMATI|RICE",pop:99,alias:"chamal"}),
+ P("dry","Rice & flour","Daawat","Sona Masoori Rice","10kg",24.99,{tags:[VEG],shape:"sack",col:"#b3261e",lab:"SONA|MASOORI"}),
+ P("dry","Rice & flour","Aashirvaad","Whole Wheat Atta","10kg",21.99,{tags:[VEG],shape:"sack",col:"#c7661a",lab:"WHOLE WHEAT|ATTA",pop:98,alias:"aata roti flour"}),
+ P("dry","Rice & flour","Himalayan Harvest","Chiura Beaten Rice","1kg",5.49,{tags:[VEG,NE],shape:"pouch",col:"#3b6b2e",fill:"#e8dcc0",lab:"CHIURA",pop:96,alias:"chiura poha flattened"}),
+ P("dry","Rice & flour","Himalayan Harvest","Sel Roti Mix","1kg",7.99,{tags:[VEG,NE],shape:"pouch",col:"#8a1c3c",fill:"#d9a35b",lab:"SEL ROTI|MIX",alias:"selroti"}),
+ P("dry","Rice & flour","TRS","Besan Gram Flour","1kg",4.99,{tags:[VEG],shape:"pouch",col:"#d08a12",fill:"#f1d27a",lab:"BESAN"}),
+ P("dry","Dal & beans","Ruchi","Toor Dal","2kg",9.99,{tags:[VEG],shape:"pouch",col:"#c99a00",fill:"#f0c419",lab:"TOOR|DAL",pop:95,alias:"arhar"}),
+ P("dry","Dal & beans","Ruchi","Masoor Dal Red Lentils","2kg",7.49,{tags:[VEG,NE],shape:"pouch",col:"#b4472a",fill:"#e57a3c",lab:"MASOOR|DAL",pop:94,alias:"musuro"}),
+ P("dry","Dal & beans","Ruchi","Moong Dal","1kg",5.99,{tags:[VEG],shape:"pouch",col:"#5d8b2d",fill:"#e9d36b",lab:"MOONG|DAL"}),
+ P("dry","Dal & beans","Himalayan Harvest","Kalo Dal Black Lentils","1kg",6.49,{tags:[VEG,NE],shape:"pouch",col:"#2c2c30",fill:"#3d3a36",lab:"KALO|DAL",alias:"urad maas"}),
+ P("dry","Dal & beans","Ruchi","Rajma Red Kidney Beans","1kg",5.99,{tags:[VEG],shape:"pouch",col:"#7d1f2a",fill:"#8e2a2e",lab:"RAJMA"}),
+ P("dry","Dal & beans","Ruchi","Kala Chana","1kg",4.99,{tags:[VEG],shape:"pouch",col:"#5b3b22",fill:"#6e4a2c",lab:"KALA|CHANA"}),
+ P("dry","Spices & masala","MDH","Meat Masala","100g",3.49,{tags:[VEG],shape:"box",col:"#a31c22",lab:"MEAT|MASALA",pop:97}),
+ P("dry","Spices & masala","Everest","Garam Masala","100g",3.29,{tags:[VEG],shape:"box",col:"#5a1f6e",lab:"GARAM|MASALA",pop:96}),
+ P("dry","Spices & masala","Everest","Turmeric Powder","200g",3.49,{tags:[VEG],shape:"pouch",col:"#c98700",fill:"#f2b705",lab:"TURMERIC",alias:"haldi besar"}),
+ P("dry","Spices & masala","MDH","Kashmiri Chilli Powder","100g",3.99,{tags:[VEG],shape:"box",col:"#c0261d",lab:"KASHMIRI|CHILLI"}),
+ P("dry","Spices & masala","Himalayan Harvest","Timur Sichuan Pepper","50g",4.99,{tags:[VEG,NE],shape:"jar",col:"#3b2a20",fill:"#6b3b2a",lab:"TIMUR",pop:93,alias:"timmur"}),
+ P("dry","Spices & masala","Himalayan Harvest","Jimbu Himalayan Herb","20g",5.99,{tags:[VEG,NE],shape:"jar",col:"#2f5d34",fill:"#7a8a4a",lab:"JIMBU"}),
+ P("dry","Spices & masala","Himalayan Harvest","Momo Masala","100g",3.99,{tags:[VEG,NE],shape:"box",col:"#d45a1c",lab:"MOMO|MASALA"}),
+ P("dry","Nepali pantry","Himalayan Harvest","Gundruk Fermented Greens","200g",6.99,{tags:[VEG,NE],shape:"pouch",col:"#2f5d34",fill:"#4f5d2c",lab:"GUNDRUK",pop:95}),
+ P("dry","Nepali pantry","Himalayan Harvest","Masyaura Dried Vadi","200g",5.49,{tags:[VEG,NE],shape:"pouch",col:"#6b4a2b",fill:"#a07a4a",lab:"MASYAURA"}),
+ P("dry","Nepali pantry","Himalayan Harvest","Lapsi Candy","200g",3.99,{tags:[VEG,NE],shape:"pouch",col:"#8a3b12",fill:"#b9571f",lab:"LAPSI"}),
+ P("dry","Nepali pantry","Himalayan Harvest","Titaura Sweet and Sour","200g",3.49,{tags:[VEG,NE],shape:"pouch",col:"#a3162f",fill:"#c84a3a",lab:"TITAURA"}),
+ P("dry","Snacks & noodles","Wai Wai","Instant Noodles Chicken 30 Pack","30 x 75g",19.99,{tags:[NE],was:22.99,shape:"noodle",col:"#d4121e",lab:"NOODLES|30 PACK",pop:100}),
+ P("dry","Snacks & noodles","Maggi","Masala Noodles 12 Pack","12 x 70g",8.99,{tags:[VEG],shape:"noodle",col:"#e8a400",lab:"MASALA|NOODLES",pop:93}),
+ P("dry","Snacks & noodles","Haldiram's","Aloo Bhujia","400g",4.99,{tags:[VEG],shape:"pouch",col:"#e2b100",fill:"#c98b2a",lab:"ALOO|BHUJIA",pop:94}),
+ P("dry","Snacks & noodles","Parle","Parle-G Biscuits","800g",3.99,{tags:[VEG],shape:"box",col:"#e9b01e",lab:"GLUCO|BISCUITS"}),
+ P("dry","Snacks & noodles","Haldiram's","Gulab Jamun Tin","1kg",6.99,{tags:[VEG],shape:"tin",col:"#7a1630",lab:"GULAB|JAMUN"}),
+ P("dry","Tea & drinks","Ilam","CTC Black Tea","500g",9.99,{tags:[VEG,NE],shape:"box",col:"#1d5b34",lab:"ILAM|TEA",pop:96,alias:"chiya chai"}),
+ P("dry","Tea & drinks","Tata Tea","Gold Black Tea","500g",8.49,{tags:[VEG],shape:"box",col:"#8a1621",lab:"GOLD|TEA"}),
+ P("dry","Tea & drinks","Rasna","Mango Drink Mix","750g",5.99,{tags:[VEG],shape:"tin",col:"#e88a00",lab:"MANGO|DRINK"}),
+ P("dry","Pickles & oil","Himalayan Harvest","Dalle Khursani Achar","200g",6.49,{tags:[VEG,NE],shape:"jar",col:"#a31c22",fill:"#b8321f",lab:"DALLE|ACHAR",pop:94}),
+ P("dry","Pickles & oil","Mother's Recipe","Mango Pickle","500g",4.99,{tags:[VEG],shape:"jar",col:"#d9761a",fill:"#c06a1d",lab:"MANGO|PICKLE"}),
+ P("dry","Pickles & oil","Kachi Ghani","Mustard Oil","1L",6.99,{tags:[VEG,NE],shape:"bottle",col:"#c08a00",fill:"#d8a514",lab:"MUSTARD|OIL",pop:95,alias:"tori tel"}),
+ P("fridge","Paneer & dairy","Leppington Dairy","Malai Paneer","400g",7.49,{tags:[VEG],shape:"block",col:"#1f5fbf",lab:"MALAI|PANEER",pop:98}),
+ P("fridge","Paneer & dairy","Amul","Pure Ghee","1L",17.99,{tags:[VEG],was:19.99,shape:"jar",col:"#1f5fbf",fill:"#f2c14e",lab:"PURE|GHEE",pop:95,alias:"ghiu"}),
+ P("fridge","Paneer & dairy","Amul","Salted Butter","500g",7.99,{tags:[VEG],shape:"block",col:"#d4121e",lab:"BUTTER"}),
+ P("fridge","Dahi & lassi","Leppington Dairy","Natural Set Dahi","1kg",5.49,{tags:[VEG],shape:"tub",col:"#1f5fbf",lab:"SET|DAHI",pop:96,alias:"curd yoghurt"}),
+ P("fridge","Dahi & lassi","Leppington Dairy","Mango Lassi","1L",5.99,{tags:[VEG],shape:"bottle",col:"#e88a00",fill:"#f6b73c",lab:"MANGO|LASSI"}),
+ P("fridge","Fresh breads","Leppington Kitchen","Plain Roti 10 Pack","10 pack",4.99,{tags:[VEG],shape:"flat",col:"#8a5a2b",lab:"FRESH ROTI"}),
+ P("fridge","Sweets","Leppington Kitchen","Rasbhari Rasgulla","1kg",9.99,{tags:[VEG,NE],shape:"tub",col:"#a3162f",lab:"RASBHARI"}),
+ P("freezer","Momo & dumplings","Leppington Kitchen","Chicken Momo 20 Pack","20 pcs",14.99,{tags:[HAL,NE],shape:"fbox",col:"#c2412d",lab:"CHICKEN|MOMO",fill:"momo",pop:100}),
+ P("freezer","Momo & dumplings","Leppington Kitchen","Buff-Style Beef Momo 20 Pack","20 pcs",15.99,{tags:[NE],shape:"fbox",col:"#3c2a6b",lab:"BUFF|MOMO",fill:"momo",pop:97}),
+ P("freezer","Momo & dumplings","Leppington Kitchen","Veg and Paneer Momo 20 Pack","20 pcs",12.99,{tags:[VEG,NE],shape:"fbox",col:"#1d6b3a",lab:"VEG|MOMO",fill:"momo"}),
+ P("freezer","Breads","Kawan","Malabar Paratha 20 Pack","20 pack",9.99,{tags:[VEG],was:11.99,shape:"flat",col:"#d4121e",lab:"MALABAR PARATHA",pop:96}),
+ P("freezer","Breads","Haldiram's","Aloo Paratha 4 Pack","4 pack",5.49,{tags:[VEG],shape:"flat",col:"#c98a00",lab:"ALOO PARATHA"}),
+ P("freezer","Snacks","Haldiram's","Punjabi Samosa 8 Pack","8 pack",7.49,{tags:[VEG],shape:"fbox",col:"#c7661a",lab:"PUNJABI|SAMOSA",fill:"samosa",pop:95}),
+ P("freezer","Snacks","Haldiram's","Vegetable Spring Rolls","500g",6.99,{tags:[VEG],shape:"fbox",col:"#1c7a7a",lab:"SPRING|ROLLS",fill:"roll"}),
+ P("freezer","Vegetables","Deep","Grated Coconut","400g",3.99,{tags:[VEG],shape:"pouch",col:"#1f5fbf",fill:"#f5f1e6",lab:"GRATED|COCONUT"}),
+ P("freezer","Vegetables","Deep","Green Peas","1kg",4.49,{tags:[VEG],shape:"pouch",col:"#2f7a3a",fill:"#7cbf3a",lab:"GREEN|PEAS",alias:"matar kerau"}),
+ P("freezer","Ice cream & kulfi","Vadilal","Malai Kulfi 6 Pack","6 x 60ml",7.99,{tags:[VEG],shape:"fbox",col:"#5a2a82",lab:"MALAI|KULFI",fill:"kulfi",pop:93})
+];
+/* ============ PACKSHOT ILLUSTRATIONS ============ */
+function shade(hex,a){ const n=parseInt(hex.replace("#",""),16); let r=n>>16,g=n>>8&255,b=n&255; const f=a<0?0:255,t=Math.abs(a); r=Math.round(r+(f-r)*t); g=Math.round(g+(f-g)*t); b=Math.round(b+(f-b)*t); return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1); }
+const FF='font-family="Barlow Semi Condensed, Arial Narrow, sans-serif" font-weight="800" text-anchor="middle"';
+function lbl(lines,x,y,size,col){ const L=lines.slice(0,2); const off=(L.length-1)*size*0.5; return `<text ${FF} x="${x}" y="${y-off+size*.35}" font-size="${size}" fill="${col}">${L.map((t,i)=>`<tspan x="${x}" dy="${i?size*1.02:0}">${esc(t)}</tspan>`).join("")}</text>`; }
+function fit(lines,w,base){ const m=Math.max(...lines.map(s=>s.length)); return Math.max(7,Math.min(base, Math.floor(w/(m*0.62)))); }
+const SH='<ellipse cx="100" cy="186" rx="64" ry="7" fill="#000" opacity=".08"/>';
+function packSVG(p){
+  const c=p.col, d=shade(c,-.3), l=shade(c,.45), lab=(p.lab||p.name).toUpperCase().split("|"), brU=p.brand.toUpperCase(), br=esc(brU), bs=w=>Math.min(10,Math.floor(w/(brU.length*0.68))), sz=esc(String(p.size).toUpperCase());
+  let s="";
+  switch(p.shape){
+    case "sack": s=SH+`<path d="M52 50 C46 38 60 28 74 33 C88 25 112 25 126 33 C140 28 154 38 148 50 L158 168 C158 179 150 183 140 183 H60 C50 183 42 179 42 168 Z" fill="${c}"/><path d="M68 40 Q100 54 132 40" stroke="${d}" stroke-width="4" fill="none"/><path d="M58 62 L63 166" stroke="#fff" stroke-width="6" opacity=".14" stroke-linecap="round"/><rect x="56" y="74" width="88" height="76" rx="6" fill="#fff"/><text ${FF} x="100" y="89" font-size="${bs(84)}" fill="${d}" letter-spacing=".5">${br}</text>${lbl(lab,100,118,fit(lab,80,19),c)}<text ${FF} x="100" y="171" font-size="15" fill="#fff">${sz}</text>`; break;
+    case "pouch": s=SH+`<path d="M58 28 H142 Q148 28 148 34 L150 176 Q150 183 143 183 H57 Q50 183 50 176 L52 34 Q52 28 58 28Z" fill="${c}"/><rect x="52" y="28" width="96" height="13" rx="5" fill="${d}"/><line x1="58" y1="47" x2="142" y2="47" stroke="${l}" stroke-width="2" stroke-dasharray="4 3"/><rect x="62" y="60" width="76" height="62" rx="5" fill="#fff"/><text ${FF} x="100" y="73" font-size="${Math.min(8.5,bs(70))}" fill="${d}">${br}</text>${lbl(lab,100,98,fit(lab,70,17),c)}<ellipse cx="100" cy="148" rx="26" ry="16" fill="#fff" opacity=".9"/><ellipse cx="100" cy="149" rx="22" ry="12" fill="${p.fill||l}"/><circle cx="92" cy="145" r="3" fill="#fff" opacity=".35"/><text ${FF} x="100" y="176" font-size="10" fill="#fff">${sz}</text>`; break;
+    case "box": s=SH+`<path d="M46 50 L64 34 H164 L146 50Z" fill="${l}"/><path d="M146 50 L164 34 V166 L146 182Z" fill="${d}"/><rect x="46" y="50" width="100" height="132" fill="${c}"/><rect x="46" y="84" width="100" height="58" fill="#fff"/><text ${FF} x="96" y="74" font-size="${Math.min(11,bs(92))}" fill="#fff">${br}</text>${lbl(lab,96,113,fit(lab,90,19),c)}<text ${FF} x="96" y="166" font-size="13" fill="#fff">${sz}</text>`; break;
+    case "fbox": { const art = p.fill==="momo" ? [70,96,122].map(x=>`<path d="M${x-14} 162 Q${x} 132 ${x+14} 162 Z" fill="#f6efe2" stroke="#e2d5bd"/><path d="M${x-6} 148 Q${x} 141 ${x+6} 148" stroke="#d9c7a6" fill="none"/>`).join("") : p.fill==="samosa" ? [76,114].map(x=>`<path d="M${x-18} 164 L${x} 134 L${x+18} 164Z" fill="#d9a44b" stroke="#b97f2a"/>`).join("") : p.fill==="kulfi" ? [78,110].map(x=>`<rect x="${x-8}" y="132" width="16" height="26" rx="8" fill="#f3e3c3"/><rect x="${x-2}" y="156" width="4" height="10" fill="#c9a77a"/>`).join("") : [70,96,122].map(x=>`<rect x="${x-12}" y="142" width="24" height="12" rx="6" fill="#e2b56a" stroke="#c28f3f"/>`).join("");
+      s=SH+`<path d="M38 60 L58 44 H168 L148 60Z" fill="${l}"/><path d="M148 60 L168 44 V158 L148 178Z" fill="${d}"/><rect x="38" y="60" width="110" height="118" fill="${c}"/><rect x="38" y="60" width="110" height="20" fill="${d}"/><text ${FF} x="78" y="74" font-size="${Math.min(9.5,bs(76))}" fill="#fff">${br}</text>${lbl(lab,93,104,fit(lab,100,20),"#fff")}${art}<rect x="118" y="64" width="26" height="12" rx="2" fill="#fff"/><text ${FF} x="131" y="73" font-size="7.5" fill="${c}">FROZEN</text>`; } break;
+    case "jar": s=SH+`<rect x="62" y="30" width="76" height="24" rx="5" fill="${c}"/><rect x="62" y="36" width="76" height="3" fill="${d}"/><rect x="62" y="44" width="76" height="3" fill="${d}"/><rect x="54" y="52" width="92" height="132" rx="18" fill="${p.fill||l}"/><rect x="62" y="62" width="8" height="110" rx="4" fill="#fff" opacity=".28"/><rect x="54" y="88" width="92" height="64" fill="#fff"/><rect x="54" y="88" width="92" height="7" fill="${c}"/><rect x="54" y="145" width="92" height="7" fill="${c}"/><text ${FF} x="100" y="106" font-size="${Math.min(8.5,bs(84))}" fill="${d}">${br}</text>${lbl(lab,100,125,fit(lab,84,17),c)}`; break;
+    case "bottle": s=SH+`<rect x="88" y="18" width="24" height="18" rx="3" fill="${d}"/><path d="M90 36 H110 V52 Q134 62 134 86 V174 Q134 184 124 184 H76 Q66 184 66 174 V86 Q66 62 90 52Z" fill="${p.fill||c}"/><rect x="74" y="78" width="7" height="90" rx="3.5" fill="#fff" opacity=".3"/><rect x="66" y="100" width="68" height="58" fill="#fff"/><rect x="66" y="100" width="68" height="6" fill="${c}"/><text ${FF} x="100" y="117" font-size="8" fill="${d}">${br}</text>${lbl(lab,100,135,fit(lab,62,15),c)}`; break;
+    case "tub": s=SH+`<path d="M46 74 H154 L143 176 Q142 183 134 183 H66 Q58 183 57 176Z" fill="#fff" stroke="#dcdad3"/><rect x="42" y="60" width="116" height="18" rx="6" fill="${c}"/><path d="M50 98 H150 L146 152 H54Z" fill="${c}"/><text ${FF} x="100" y="113" font-size="${Math.min(8.5,bs(90))}" fill="#fff">${br}</text>${lbl(lab,100,133,fit(lab,90,18),"#fff")}`; break;
+    case "tin": s=SH+`<rect x="56" y="44" width="88" height="138" fill="${c}"/><ellipse cx="100" cy="182" rx="44" ry="8" fill="${d}"/><rect x="56" y="80" width="88" height="66" fill="#fff"/><ellipse cx="100" cy="44" rx="44" ry="10" fill="${l}"/><ellipse cx="100" cy="44" rx="38" ry="7" fill="none" stroke="${d}" stroke-width="2"/><text ${FF} x="100" y="97" font-size="8.5" fill="${d}">${br}</text>${lbl(lab,100,120,fit(lab,80,17),c)}<rect x="62" y="56" width="6" height="120" fill="#fff" opacity=".18"/>`; break;
+    case "noodle": { const zz=y=>Array.from({length:20},(_,i)=>`L${(22+i*7.8+3.9).toFixed(1)} ${i%2?y-6:y}`).join(" ");
+      s=SH+`<rect x="22" y="54" width="156" height="110" rx="6" fill="${c}"/><path d="M22 60 ${zz(60)} L178 60" stroke="${d}" stroke-width="3" fill="none"/><path d="M22 158 ${zz(164)} L178 158" stroke="${d}" stroke-width="3" fill="none"/><text ${FF} x="100" y="82" font-size="13" fill="#fff" letter-spacing="1.5">${br}</text>${lbl(lab,80,112,fit(lab,96,19),"#fff")}<ellipse cx="146" cy="126" rx="22" ry="10" fill="#fff"/><path d="M128 124 q6 -10 12 0 t12 0 t12 0" stroke="#e8b84a" stroke-width="3" fill="none"/><text ${FF} x="100" y="152" font-size="10" fill="#fff" opacity=".85">${sz}</text>`; } break;
+    case "block": s=SH+`<path d="M38 96 L62 74 H170 L146 96Z" fill="${l}"/><path d="M146 96 L170 74 V150 L146 172Z" fill="${d}"/><rect x="38" y="96" width="108" height="76" fill="#fff" stroke="#dcdad3"/><rect x="38" y="96" width="108" height="18" fill="${c}"/><text ${FF} x="92" y="109" font-size="${Math.min(9,bs(100))}" fill="#fff">${br}</text>${lbl(lab,92,141,fit(lab,96,18),c)}`; break;
+    case "flat": { const t=lab.join(" "); s=SH+`<rect x="30" y="66" width="140" height="110" rx="10" fill="${c}"/><ellipse cx="100" cy="130" rx="56" ry="28" fill="#e2bd86"/><ellipse cx="100" cy="126" rx="56" ry="28" fill="#f1d3a0"/><circle cx="84" cy="120" r="5" fill="#c9924f" opacity=".6"/><circle cx="114" cy="132" r="4" fill="#c9924f" opacity=".6"/><circle cx="106" cy="114" r="3" fill="#c9924f" opacity=".5"/><rect x="30" y="66" width="140" height="22" rx="8" fill="${d}"/><text ${FF} x="100" y="81" font-size="10.5" fill="#fff" letter-spacing="1">${br}</text><text ${FF} x="100" y="169" font-size="${fit([t],128,14)}" fill="#fff">${esc(t)}</text>`; } break;
+    case "tray": s=trayArt(p); break;
+    default: s=produceArt(p);
+  }
+  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${s}</svg>`;
+}
+function trayArt(p){
+  const meat={goat:["#a8323a","#f2d4cc"],leg:["#9e2f36","#efd0c6"],cube:["#a3363b","#f0cfc4"],chicken:["#efb6a1","#fbe3d8"],thigh:["#e9a790","#f8dccf"],mince:["#d98a7c","#f3c4b6"],whole:["#f0c2a6","#f9dccb"],fish:["#d7dde2","#e8a493"],pork:["#e9a593","#fbe9df"]}[p.fill]||["#b23a3a","#f2d4cc"];
+  let pc="";
+  if(p.fill==="mince"){ for(let i=0;i<46;i++){const x=46+((i*37)%108),y=86+((i*23)%66); pc+=`<circle cx="${x}" cy="${y}" r="${4+(i%3)}" fill="${i%4?meat[0]:meat[1]}"/>`;} }
+  else if(p.fill==="whole"||p.fill==="leg"){ pc=`<ellipse cx="100" cy="120" rx="52" ry="34" fill="${meat[0]}"/><ellipse cx="88" cy="110" rx="20" ry="10" fill="${meat[1]}" opacity=".55"/>${p.fill==="leg"?`<rect x="140" y="110" width="26" height="10" rx="5" fill="#f5efe4"/>`:`<ellipse cx="146" cy="102" rx="14" ry="10" fill="${meat[0]}"/><ellipse cx="54" cy="102" rx="14" ry="10" fill="${meat[0]}"/>`}`; }
+  else if(p.fill==="fish"){ [[66,106],[112,102],[84,138],[130,136]].forEach(([x,y])=>pc+=`<ellipse cx="${x}" cy="${y}" rx="22" ry="15" fill="#9aa5ad"/><ellipse cx="${x}" cy="${y}" rx="18" ry="12" fill="${meat[1]}"/><circle cx="${x}" cy="${y}" r="3" fill="#f3e8e4"/>`); }
+  else if(p.fill==="pork"){ [[70,106],[128,106],[96,140]].forEach(([x,y])=>pc+=`<rect x="${x-26}" y="${y-13}" width="52" height="26" rx="5" fill="${meat[1]}"/><rect x="${x-26}" y="${y-5}" width="52" height="8" fill="${meat[0]}"/><rect x="${x-26}" y="${y+7}" width="52" height="5" fill="#d98a7a"/>`); }
+  else { [[64,104,22,15,-15],[104,98,24,16,10],[144,106,20,14,-20],[74,136,23,14,12],[116,138,25,15,-8]].forEach(([x,y,rx,ry,r],i)=>{ pc+=`<g transform="rotate(${r} ${x} ${y})"><ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${meat[0]}"/><ellipse cx="${x-6}" cy="${y-4}" rx="${rx*.45}" ry="${ry*.35}" fill="${meat[1]}" opacity=".7"/>${p.fill==="goat"&&i%2===0?`<circle cx="${x+rx-8}" cy="${y+2}" r="5" fill="#f6f0e6"/>`:""}</g>`; }); }
+  const halal=p.tags.includes(HAL);
+  return SH+`<rect x="22" y="64" width="156" height="110" rx="14" fill="#2a2a2c"/><rect x="30" y="72" width="140" height="94" rx="10" fill="#3b3b3e"/>${pc}<path d="M34 76 L92 76 L52 162 L34 162Z" fill="#fff" opacity=".07"/><rect x="114" y="148" width="62" height="32" rx="3" fill="#fff"/><text ${FF} x="145" y="161" font-size="9" fill="${halal?"#0f7a3d":"#0f766e"}">${halal?"HALAL":"NOT HALAL"}</text><text ${FF} x="145" y="174" font-size="7.5" fill="#1d1d1f">LEPPINGTON BUTCHER</text>`;
+}
+function produceArt(p){
+  let s=SH;
+  switch(p.shape){
+    case "chilli": [[40,118,-10],[50,138,8],[46,98,-25],[60,156,18],[58,80,-35]].forEach(([x,y,r],i)=>s+=`<g transform="rotate(${r} ${x+60} ${y})"><path d="M${x} ${y} C ${x+40} ${y-14}, ${x+90} ${y-6}, ${x+120} ${y+18}" stroke="${i%2?"#2f8a2f":"#3d9b33"}" stroke-width="13" stroke-linecap="round" fill="none"/><path d="M${x} ${y} l-8 -6" stroke="#5c7a2a" stroke-width="5" stroke-linecap="round"/></g>`); break;
+    case "okra": for(let i=0;i<5;i++){const x=44+i*24;s+=`<g transform="rotate(${-20+i*10} ${x+10} 120)"><path d="M${x} 70 Q${x+18} 80 ${x+12} 170 Q${x-4} 90 ${x} 70Z" fill="${i%2?"#4a9a3a":"#5aa844"}"/><path d="M${x+4} 76 L${x+9} 160" stroke="#3a7d2c" stroke-width="1.5"/><rect x="${x-2}" y="62" width="7" height="12" rx="3" fill="#6b8a3a"/></g>`;} break;
+    case "gourd": [[72,0],[122,14]].forEach(([x,r])=>{ s+=`<g transform="rotate(${-15+r} ${x} 120)"><ellipse cx="${x}" cy="120" rx="24" ry="62" fill="#3f8f34"/>${Array.from({length:14},(_,i)=>`<circle cx="${x-12+(i%3)*12}" cy="${72+i*7}" r="4" fill="#5cae45"/>`).join("")}</g>`; }); break;
+    case "radish": s+=`<path d="M100 58 C80 20 60 30 66 50 M100 58 C100 18 120 18 116 46 M100 58 C126 30 140 44 128 58" stroke="#4c9a3d" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M86 60 Q100 50 114 60 L108 180 Q100 192 92 180Z" fill="#f3f0ea" stroke="#dcd6c9"/>`; break;
+    case "leaves": { const g=p.fill||"#2f8a3c"; for(let i=0;i<9;i++){const r=-48+i*12; s+=`<g transform="rotate(${r} 100 176)"><path d="M100 176 L100 70" stroke="#5a8f3a" stroke-width="3"/><path d="M100 64 C 80 76 80 104 100 116 C 120 104 120 76 100 64Z" fill="${shade(g,(i%3)*.12)}"/><path d="M100 70 L100 112" stroke="${shade(g,-.25)}" stroke-width="1.4"/></g>`;} s+=`<rect x="88" y="148" width="24" height="12" rx="3" fill="#c49a62"/>`; } break;
+    case "ginger": s+=`<path d="M40 130 C40 104 70 100 82 112 C88 88 120 86 124 110 C134 96 164 104 160 128 C176 140 160 168 136 160 C120 176 92 174 84 160 C64 174 36 160 40 130Z" fill="#c99b5e"/><path d="M66 130 C90 122 120 124 146 136" stroke="#a87a42" stroke-width="2.5" fill="none"/><circle cx="104" cy="104" r="4" fill="#e2bf87"/>`; break;
+    case "garlic": [[70,130],[130,130],[100,118]].forEach(([x,y])=>s+=`<path d="M${x} ${y-50} C${x-6} ${y-30} ${x-38} ${y-20} ${x-34} ${y+12} C${x-30} ${y+40} ${x+30} ${y+40} ${x+34} ${y+12} C${x+38} ${y-20} ${x+6} ${y-30} ${x} ${y-50}Z" fill="#f3ede1" stroke="#ddd2bf"/><path d="M${x} ${y-44} Q${x-10} ${y} ${x-4} ${y+34} M${x} ${y-44} Q${x+12} ${y} ${x+8} ${y+34}" stroke="#ddd2bf" fill="none"/><path d="M${x} ${y-50} l0 -8" stroke="#b7a98e" stroke-width="3"/>`); break;
+    case "mango": s+=`<g transform="rotate(-20 100 120)"><ellipse cx="100" cy="122" rx="56" ry="64" fill="#f2b33a"/><ellipse cx="114" cy="140" rx="36" ry="40" fill="#e8742a" opacity=".55"/><ellipse cx="84" cy="96" rx="14" ry="20" fill="#fff" opacity=".25"/></g><path d="M100 58 C118 34 150 38 156 46 C140 58 118 60 100 58Z" fill="#3f8f34"/>`; break;
+    default: { const c=p.fill||"#c49a62"; [[66,142,30],[134,142,30],[100,104,32],[100,154,28]].forEach(([x,y,r])=>{ s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/><circle cx="${x-r*.3}" cy="${y-r*.35}" r="${r*.32}" fill="#fff" opacity=".22"/>`; if(c==="#7b2846") s+=`<path d="M${x} ${y-r} l0 -8" stroke="#c9a77a" stroke-width="3"/><path d="M${x-r*.5} ${y-r*.6} Q${x} ${y} ${x-r*.4} ${y+r*.7}" stroke="#5e1d35" fill="none" stroke-width="1.5"/>`; if(c==="#c49a62") s+=`<circle cx="${x+8}" cy="${y+6}" r="2" fill="#8d6b3a"/><circle cx="${x-10}" cy="${y+10}" r="1.6" fill="#8d6b3a"/>`; }); }
+  }
+  return s;
+}
+
+const ABOUT={"Vegetables":"Bought fresh from the markets each morning.","Herbs & leaves":"Fresh bunches several times a week. Keep in the fridge wrapped in a damp cloth.","Fruit":"Ripe or ready in a day or two.","Goat":"Halal goat cut fresh in store when you order. Add a note at checkout if you want smaller pieces.","Chicken":"Halal chicken, cut fresh to order.","Lamb":"Halal lamb, trimmed and diced in store.","Fish":"Cleaned, scaled and cut into curry steaks.","Pork":"Cut and packed separately from halal meat. Not halal.","Rice & flour":"Pantry staple for everyday cooking.","Dal & beans":"Cleaned, sorted lentils and beans. Rinse before cooking.","Spices & masala":"Store in a cool, dry place and close well after opening.","Nepali pantry":"Sourced from Nepal.","Snacks & noodles":"Quick snacks and noodles for the pantry.","Tea & drinks":"For the daily cup of chiya.","Pickles & oil":"Keep sealed and use a dry spoon.","Paneer & dairy":"Keep refrigerated.","Dahi & lassi":"Keep refrigerated and use by the date on the pack.","Fresh breads":"Keep refrigerated. Warm on a tawa before serving.","Sweets":"Keep refrigerated.","Momo & dumplings":"Made in our kitchen and frozen the same day. Steam from frozen for 12 to 14 minutes.","Breads":"Cook from frozen on a hot tawa, no oil needed.","Snacks":"Bake or air-fry from frozen.","Ice cream & kulfi":"Keep frozen at −18°C."};
+
+/* ============ HELPERS ============ */
+const $=s=>document.querySelector(s);
+function esc(s){ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+const money=n=>"$"+(+n||0).toFixed(2);
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let tT; function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tT);tT=setTimeout(()=>t.classList.remove("on"),2400);}
+function priceHTML(v,sale){ const [d,c]=(+v||0).toFixed(2).split("."); return `<span class="now num${sale?" sale":""}">$${d}<sup>.${c}</sup></span>`; }
+const num=v=>{ if(v===""||v==null) return null; const n=parseFloat(v); return isNaN(n)?null:n; };
+const r2=n=>Math.round(n*100)/100;
+function syd(offsetDays=0){
+  const f=new Intl.DateTimeFormat("en-AU",{timeZone:"Australia/Sydney",hour:"numeric",minute:"numeric",hour12:false,weekday:"short",day:"numeric",month:"short"}).formatToParts(new Date(Date.now()+offsetDays*864e5));
+  const g=t=>(f.find(x=>x.type===t)||{}).value;
+  return {h:(+g("hour"))%24,m:+g("minute"),wd:g("weekday"),day:g("day"),mon:g("month")};
+}
+const todayISO=()=>new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney"}).format(new Date());
+const fmtH=h=>`${((h+11)%12)+1}${h%24<12?"am":"pm"}`;
+const secById=id=>CFG.sections.find(s=>s.id===id);
+const secName=id=>(secById(id)||{name:id}).name;
+const secVisible=id=>{const s=secById(id);return !!(s&&s.visible);};
+
+/* ============ CATALOGUE MODEL ============ */
+const WEIGHTS_DEF="500g=0.5, 1kg=1, 2kg=2";
+function parseWeights(s){ const out=[]; String(s||WEIGHTS_DEF).split(",").forEach(t=>{ const m=t.trim().match(/^(.+?)\s*=\s*([\d.]+)$/); if(m&&+m[2]>0) out.push([m[1].trim(),+m[2]]); }); return out.length?out:[["1kg",1]]; }
+const EDIT_KEYS=["name","brand","size","sku","sec","sub","regular","special","saleEnds","short","desc","tags","perKg","weights","stock","qty","maxQty","photos","hidden","featured","sort","badge","zone"];
+const BASE_DEF={brand:"",size:"",sku:"",short:"",desc:"",tags:[],perKg:false,weights:WEIGHTS_DEF,stock:true,qty:null,maxQty:null,photos:[],hidden:false,featured:false,sort:0,badge:"",zone:"",saleEnds:"",special:null,pop:0,alias:""};
+function normBase(b){
+  const o=Object.assign({},BASE_DEF,b);
+  if(o.regular==null){ if(b.was!=null&&b.was>b.price){ o.regular=b.was; o.special=b.price; } else { o.regular=b.price??0; o.special=null; } }
+  delete o.was; delete o.price;
+  return o;
+}
+const HOSTED=!!window.LEPP_HOSTED;
+const BUILTIN = (HOSTED?[]:PRODUCTS).map(p=>normBase(Object.assign({}, p, {short:ABOUT[p.sub]||""})));
+let IMPORTED=[], ATL=[], ATL_COLS=10, IMPORT_META=null, OV={}, CATALOG=[], CMAP={}, BASEMAP={};
+function derive(p){
+  const t=todayISO();
+  const active = p.special!=null && p.special!=="" && +p.special>0 && +p.special < +p.regular && (!p.saleEnds || p.saleEnds>=t);
+  p.price = active ? +p.special : +p.regular||0;
+  p.was = active ? +p.regular : null;
+  p.out = p.stock===false || (p.qty!=null && p.qty!=="" && +p.qty<=0);
+  p.zoneEff = p.zone || ZONE_OF[p.sec] || "shelf";
+  p.wl = p.perKg ? parseWeights(p.weights) : null;
+  p.tags = Array.isArray(p.tags)?p.tags:[];
+  p.photos = Array.isArray(p.photos)?p.photos:[];
+  return p;
+}
+function rebuild(){
+  BASEMAP={}; BUILTIN.forEach(b=>BASEMAP[b.id]=b); IMPORTED.forEach(b=>BASEMAP[b.id]=b);
+  const list=[];
+  for(const id in BASEMAP){ const o=OV[id]; if(o&&o.deleted) continue; const p=Object.assign({},BASEMAP[id]); if(o) EDIT_KEYS.forEach(k=>{ if(k in o) p[k]=o[k]; }); p.edited=!!o; list.push(derive(p)); }
+  for(const id in OV){ const o=OV[id]; if(o.custom&&!o.deleted&&!BASEMAP[id]){ const p=Object.assign({},BASE_DEF,{id,src:"custom",regular:0,sec:"dry",sub:"Other",name:"New product"}); EDIT_KEYS.forEach(k=>{ if(k in o) p[k]=o[k]; }); ["img","shape","col","fill","lab","alias","pop"].forEach(k=>{ if(o[k]!=null) p[k]=o[k]; }); p.edited=true; list.push(derive(p)); } }
+  CATALOG=list; CMAP={}; list.forEach(p=>CMAP[p.id]=p);
+}
+const prod=id=>CMAP[id]||null;
+const shown=p=>p&&!p.hidden&&secVisible(p.sec);
+const visible=()=>CATALOG.filter(shown);
+function relSort(a,b){ return (b.featured-a.featured)||((+b.sort||0)-(+a.sort||0))||((b.pop||0)-(a.pop||0))||(a.photos.length||a.img||a.shape?0:1)-(b.photos.length||b.img||b.shape?0:1)||a.name.localeCompare(b.name); }
+
+/* ============ IMAGES ============ */
+function phSVG(p){ return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="36" y="40" width="128" height="128" rx="16" fill="#f1efe9"/><path d="M78 92h44l-4 46H82Z" fill="none" stroke="#b9b5aa" stroke-width="5" stroke-linejoin="round"/><path d="M90 92v-6a10 10 0 0 1 20 0v6" fill="none" stroke="#b9b5aa" stroke-width="5"/><text x="100" y="158" font-family="Public Sans,Arial,sans-serif" font-size="11" fill="#8d897e" text-anchor="middle">Photo coming soon</text></svg>`; }
+function spriteHTML(ref){ const A=ATL[ref[0]]; if(!A) return null; const c=ref[1]%ATL_COLS, r=Math.floor(ref[1]/ATL_COLS); return `<span class="spr" style="background-image:url('${esc(A.url)}');background-size:${ATL_COLS*100}% ${A.rows*100}%;background-position:${ATL_COLS>1?c/(ATL_COLS-1)*100:0}% ${A.rows>1?r/(A.rows-1)*100:0}%"></span>`; }
+function defaultImg(p){ if(p.img){ const s=spriteHTML(p.img); if(s) return s; } if(p.shape) return packSVG(p); return phSVG(p); }
+function imgHTML(p,i=0){ const ph=p.photos[i]; if(ph&&ph.url) return `<img src="${esc(ph.url)}" alt="" loading="lazy">`; return defaultImg(p); }
+
+/* ============ PRICES ============ */
+function sizeFrom(p){ if(p.size) return p.size; const m=String(p.name).match(/(\d+(?:\.\d+)?)\s*(kg|kgs|g|gm|gms|grams?|ml|l|ltr|litre|liter)\b/i); return m?m[1]+m[2]:""; }
+function cupPrice(p){
+  if(p.perKg) return `${money(p.price)} / 1kg`;
+  const m=String(sizeFrom(p)).toLowerCase().match(/^(?:(\d+)\s*x\s*)?([\d.]+)\s*(kg|kgs|g|gm|gms|grams?|ml|l|ltr|litre|liter)$/); if(!m) return "";
+  let q=+m[2]*(m[1]?+m[1]:1), u=m[3]; if(!q) return "";
+  if(/^g|^gm/.test(u)) u="g"; else if(/^kg/.test(u)) u="kg"; else if(u==="ml") u="ml"; else u="l";
+  if(u==="g"||u==="ml") return q<1000? `${money(p.price/q*100)} / 100${u}` : `${money(p.price/q*1000)} / 1${u==="g"?"kg":"L"}`;
+  return `${money(p.price/q)} / 1${u==="kg"?"kg":"L"}`;
+}
+const wMult=(p,w)=>{ if(!p||!p.wl||!w) return 1; const f=p.wl.find(x=>x[0]===w); return f?f[1]:p.wl[0][1]; };
+const selW=p=>{ const s=ls.get("rv3_w_"+p.id,null); return p.wl.some(w=>w[0]===s)?s:(p.wl.find(w=>w[0]==="1kg")||p.wl[0])[0]; };
+
+/* ============ STATE ============ */
+const S={ cart:ls.get("rv2_cart",{}), ful:ls.get("rv2_ful",{mode:"delivery",pc:"",slot:null}), q:"", sort:"pop", fsub:new Set(), ftag:new Set(), fprice:"", limit:48, promo:null, last:null, slide:0 };
+const saveCart=()=>ls.set("rv2_cart",S.cart), saveFul=()=>ls.set("rv2_ful",S.ful);
+let pendingSub=null, pickDay=null;
+
+/* ============ SLOTS ============ */
+function slotDays(mode){
+  const now=syd(0), mins=now.h*60+now.m, days=[];
+  for(let d=0; d<3; d++){
+    const t=syd(d), list=[];
+    if(mode==="collect"){
+      let startH=+CFG.openHour;
+      if(d===0){ if(now.h>=CFG.openHour&&now.h<CFG.closeHour) list.push({v:"asap",l:"ASAP",s:"Ready in 5 minutes"}); startH=Math.max(+CFG.openHour,now.h+1); }
+      for(let h=startH; h<CFG.closeHour; h++) list.push({v:String(h),l:`${fmtH(h)} – ${fmtH(h+1)}`,s:"Free"});
+    } else {
+      const wins=[[10,12],[12,14],[14,16],[16,18],[18,20]];
+      if(d===0){
+        if(mins<CFG.cutoffHour*60){ wins.forEach(([a,b])=>{ if(a*60>=mins+75) list.push({v:`${a}-${b}`,l:`${fmtH(a)} – ${fmtH(b)}`,s:"Same day"}); }); if(!list.length) list.push({v:"18-20",l:`${fmtH(18)} – ${fmtH(20)}`,s:"Same day"}); }
+        else if(now.h<CFG.lateRunUntil) list.push({v:"late",l:"Tonight, late run",s:"We call to confirm"});
+      } else wins.forEach(([a,b])=>list.push({v:`${a}-${b}`,l:`${fmtH(a)} – ${fmtH(b)}`,s:"Delivery"}));
+    }
+    days.push({label:d===0?"Today":d===1?"Tomorrow":t.wd, date:`${t.wd} ${t.day} ${t.mon}`, slots:list});
+  }
+  return days;
+}
+function ensureSlot(){
+  const days=slotDays(S.ful.mode), s=S.ful.slot;
+  if(!(s && days.some(dd=>dd.date===s.date && dd.slots.some(x=>x.v===s.v)))){ const dd=days.find(x=>x.slots.length); if(dd){ const f=dd.slots[0]; S.ful.slot={v:f.v,date:dd.date,day:dd.label,l:f.l}; } else S.ful.slot=null; saveFul(); }
+  else { const dd=days.find(x=>x.date===s.date); s.day=dd.label; }
+}
+function slotText(){ const s=S.ful.slot; if(!s) return "Choose a time"; if(s.v==="asap") return "Ready in 5 minutes"; return `${s.day}, ${s.l}`; }
+function checkPostcode(pc){
+  if(!/^\d{4}$/.test(pc)) return {ok:false,msg:"Enter a 4-digit postcode."};
+  const list=String(CFG.postcodes||"").split(/[\s,]+/).filter(Boolean);
+  if(list.length) return list.includes(pc)?{ok:true,msg:`Good news, we deliver to ${pc}.`}:{ok:false,msg:`We don't deliver to ${pc} yet. Click & Collect is ready in 5 minutes.`};
+  return /^2/.test(pc)?{ok:true,msg:`Good news, we deliver to ${pc}.`}:{ok:false,msg:`${pc} is outside our NSW delivery area. Try Click & Collect.`};
+}
+
+/* ============ CART ============ */
+function line(key){ const i=key.indexOf("|"), id=i<0?key:key.slice(0,i), w=i<0?null:key.slice(i+1); const p=prod(id); if(!p||!shown(p)) return null; return {key,p,w,unit:p.price*wMult(p,w),qty:S.cart[key]}; }
+function totals(){
+  const lines=Object.keys(S.cart).map(line).filter(Boolean);
+  const sub=lines.reduce((a,l)=>a+l.unit*l.qty,0), count=lines.reduce((a,l)=>a+l.qty,0);
+  const save=lines.reduce((a,l)=>a+(l.p.was?(l.p.was-l.p.price)*wMult(l.p,l.w)*l.qty:0),0);
+  const disc=S.promo?sub*S.promo.pct/100:0;
+  const fee=(S.ful.mode==="collect"||!sub)?0:(sub-disc>=CFG.freeOver?0:+CFG.deliveryFee);
+  return {lines,sub,count,save,disc,fee,total:sub-disc+fee};
+}
+function setQty(key,q){
+  const p=prod(key.split("|")[0]); const cap=p&&p.maxQty?+p.maxQty:99, stockCap=p&&p.qty!=null&&p.qty!==""?+p.qty:99;
+  const lim=Math.min(cap,stockCap);
+  if(q>lim){ q=lim; toast(`You can add up to ${lim} of this item.`); }
+  if(q<=0) delete S.cart[key]; else S.cart[key]=q; saveCart(); refreshCards(key); updateCartBits(); if($("#drawer").classList.contains("on")) renderCart();
+}
+function updateCartBits(){
+  const t=totals();
+  $("#cartCt").textContent=t.count; $("#cartAmt").textContent=money(t.total);
+  $("#mcCt").textContent=t.count; $("#mcAmt").textContent=money(t.total);
+  $("#mcart").hidden=!t.count||["checkout","admin"].includes(route());
+}
+
+/* ============ PRODUCT CARD ============ */
+function cardHTML(p,preview){
+  const sel=p.perKg?selW(p):null, mult=p.perKg?wMult(p,sel):1, key=p.perKg?p.id+"|"+sel:p.id, q=preview?0:(S.cart[key]||0);
+  const showBrand=p.brand&&!["Fresh","Halal","Not halal"].includes(p.brand);
+  const low=p.qty!=null&&p.qty!==""&&+p.qty>0&&+p.qty<=5;
+  return `<article class="card" data-card="${esc(p.id)}">
+    ${p.was?`<span class="tagS">SAVE ${money((p.was-p.price)*mult)}</span>`:""}
+    ${p.badge?`<span class="badgeX">${esc(p.badge)}</span>`:p.tags.includes(NE)&&!p.was?`<span class="tagN">Nepali favourite</span>`:""}
+    <button class="cimg" data-open="${esc(p.id)}" aria-label="View ${esc(p.name)}">${imgHTML(p)}${p.tags.includes(HAL)?'<span class="tagH">Halal</span>':""}</button>
+    <div class="cb">
+      <div class="pr">${priceHTML(p.price*mult,!!p.was)}</div>
+      <div class="cup num">${esc(cupPrice(p))}</div>
+      ${p.was?`<div class="was num">Was ${money(p.was*mult)}</div>`:""}
+      <button class="cname" data-open="${esc(p.id)}">${showBrand?esc(p.brand)+" ":""}${esc(p.name)}${p.perKg||!p.size?"":" | "+esc(p.size)}</button>
+      ${low?`<div class="lowstock">Only ${+p.qty} left</div>`:""}
+      <div class="cacts">
+        ${p.perKg?`<select class="wsel" data-w="${esc(p.id)}" aria-label="Weight for ${esc(p.name)}">${p.wl.map(w=>`<option ${w[0]===sel?"selected":""}>${esc(w[0])}</option>`).join("")}</select>`:""}
+        ${p.out?`<button class="addb" disabled>Out of stock</button>`:q?`<div class="stp"><button data-dec="${esc(key)}" aria-label="Remove one">−</button><span class="num">${q} in cart</span><button data-inc="${esc(key)}" aria-label="Add one">+</button></div>`:`<button class="addb" ${preview?"":`data-add="${esc(key)}"`}>Add to cart</button>`}
+      </div>
+    </div></article>`;
+}
+function refreshCards(key){ const id=key.split("|")[0], p=prod(id); if(!p) return; document.querySelectorAll(`[data-card="${CSS.escape(id)}"]`).forEach(el=>{ el.outerHTML=cardHTML(p); }); }
+
+/* ============ ROUTER ============ */
+const route=()=>decodeURIComponent(location.hash.slice(1))||"home";
+function go(r){ if(route()===r) renderView(); else location.hash=r; }
+window.addEventListener("hashchange",()=>{ S.fsub.clear(); S.ftag.clear(); S.fprice=""; S.limit=48; if(pendingSub){S.fsub.add(pendingSub);pendingSub=null;} pickDay=null; renderView(); window.scrollTo(0,0); });
+function navLinks(){ return [["specials","Specials","sp"],["nepali","Nepali favourites",""],...CFG.sections.filter(s=>s.visible).map(s=>[s.id,s.name,""])]; }
+function renderChrome(){
+  $("#annc").textContent=CFG.announcement||"";
+  $("#logoW").innerHTML=esc(CFG.logoText||"").replace(/&amp;/g,"<i>&amp;</i>");
+  $("#logoT").textContent=CFG.tagline||"";
+  $("#ftName").textContent=CFG.storeName; $("#lgName").textContent=CFG.storeName; $("#ftAbout").textContent=CFG.about||"";
+  $("#ftContact").innerHTML=`Phone and WhatsApp: <b style="user-select:all;color:#fff">${esc(CFG.phone)}</b>${CFG.email?`<br><span style="user-select:all">${esc(CFG.email)}</span>`:""}<br>${esc(CFG.address)}<br>Open every day, ${fmtH(+CFG.openHour)} to ${fmtH(+CFG.closeHour)}`;
+}
+function renderNav(){
+  const r=route(), L=navLinks();
+  $("#links").innerHTML=L.map(([id,n,c])=>`<a href="#${id}" class="${c}" ${r===id?'aria-current="page"':""}>${esc(n)}</a>`).join("");
+  const V=visible();
+  $("#megaIn").innerHTML=CFG.sections.filter(s=>s.visible).map(s=>{ const subs=[...new Set(V.filter(p=>p.sec===s.id).map(p=>p.sub))].sort(); return `<div><h4><button data-sec="${s.id}">${esc(s.name)}</button></h4><ul>${subs.slice(0,14).map(sub=>`<li><button data-sec="${s.id}" data-sub="${esc(sub)}">${esc(sub)}</button></li>`).join("")}${subs.length>14?`<li><button data-sec="${s.id}"><b>All ${esc(s.name)}</b></button></li>`:""}</ul></div>`; }).join("");
+  $("#ftShop").innerHTML=L.map(([id,n])=>`<li><button data-route="${id}">${esc(n)}</button></li>`).join("");
+  const f=S.ful;
+  $("#fulIc").innerHTML=f.mode==="delivery"?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9h16l-1 11H5Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>';
+  $("#fulT").textContent=f.mode==="delivery"?(f.pc?`Delivery to ${f.pc}`:"Delivery · add postcode"):"Click & Collect";
+  $("#fulS").textContent=slotText();
+}
+function renderView(){
+  ensureSlot(); renderChrome(); renderNav(); updateCartBits();
+  const r=route(), v=$("#view");
+  if(secById(r)||["specials","nepali","search"].includes(r)) v.innerHTML=browseHTML(r);
+  else if(r==="checkout") { if(SQ.card){ try{SQ.card.destroy();}catch(e){} SQ.card=null; } v.innerHTML=checkoutHTML(); syncPay(); }
+  else if(r==="confirmed") v.innerHTML=confirmHTML();
+  else if(r==="orders") v.innerHTML=ordersHTML();
+  else if(r==="help") v.innerHTML=helpHTML();
+  else if(r==="admin") { v.innerHTML=adminHTML(); afterAdmin(); }
+  else { v.innerHTML=homeHTML(); startCarousel(); }
+}
+/* Re-render after live data changes without wiping a form the person is typing in. */
+let softT; function softRender(){ clearTimeout(softT); softT=setTimeout(()=>{ const r=route(); if(r==="checkout") { renderNav(); updateCartBits(); return; } if(r==="admin"&&(A.edit||["settings","import"].includes(A.tab))) { renderNav(); return; } const y=window.scrollY; renderView(); window.scrollTo(0,y); },150); }
+
+/* ============ HOME ============ */
+let carT;
+function startCarousel(){ clearInterval(carT); if(matchMedia("(prefers-reduced-motion: reduce)").matches) return; const n=document.querySelectorAll(".slide").length; if(n<2) return; carT=setInterval(()=>{ if(document.hidden||!$(".car")) return; setSlide((S.slide+1)%n); },6500); }
+function setSlide(i){ S.slide=i; document.querySelectorAll(".slide").forEach((s,j)=>s.classList.toggle("on",j===i)); document.querySelectorAll(".dots button").forEach((b,j)=>b.setAttribute("aria-current",j===i)); }
+let rowN=0;
+function shelf(title,list,link){ if(!list.length) return ""; const id="row"+(++rowN); return `<section class="shelf"><div class="shelf-h"><h2>${esc(title)}</h2><div class="ctrls">${link?`<a class="lnk" href="#${link}">View all</a>`:""}<button class="arr" data-scroll="${id}" data-dir="-1" aria-label="Scroll left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m15 6-6 6 6 6"/></svg></button><button class="arr" data-scroll="${id}" data-dir="1" aria-label="Scroll right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m9 6 6 6-6 6"/></svg></button></div></div><div class="row" id="${id}">${list.map(p=>cardHTML(p)).join("")}</div></section>`; }
+const isNepali=p=>p.tags.includes(NE);
+function homeHTML(){
+  const V=visible().sort(relSort);
+  const slides=(CFG.hero||[]).filter(h=>h&&h.title);
+  if(S.slide>=slides.length) S.slide=0;
+  const heroArt=h=>String(h.products||"").split(/[\s,]+/).map(id=>prod(id)).filter(Boolean).slice(0,3).map(p=>p.photos.length?`<span style="display:block;width:30%;max-width:170px;aspect-ratio:1;background:#fff;border-radius:10px;padding:6px;margin:0 1%">${imgHTML(p)}</span>`:p.shape?packSVG(p):`<span style="display:block;width:30%;max-width:170px;aspect-ratio:1;background:#fff;border-radius:10px;padding:6px;margin:0 1%">${defaultImg(p)}</span>`).join("");
+  const tileImg=id=>{ const p=V.find(x=>id==="specials"?x.was:id==="nepali"?isNepali(x):x.sec===id); return p?(p.photos.length?imgHTML(p):defaultImg(p)):phSVG({}); };
+  const tiles=[["specials","Specials"],["nepali","Nepali favourites"],...CFG.sections.filter(s=>s.visible).map(s=>[s.id,s.name])];
+  const secShelves=CFG.sections.filter(s=>s.visible).map(s=>shelf(s.name,V.filter(p=>p.sec===s.id).slice(0,14),s.id)).join("");
+  return `<div class="wrap">
+  <section class="hero">
+    <div class="car" aria-roledescription="carousel" aria-label="Featured">
+      ${slides.map((h,i)=>`<div class="slide ${i===S.slide?"on":""}" style="background:${esc(h.bg||"#0f766e")};color:${h.fg==="dark"?"#1d1d1f":"#fff"}"><div><h2>${esc(h.title).replace(/\n/g,"<br>")}</h2>${h.badge?`<div class="price-burst num"><span class="big" style="font-size:24px">${esc(h.badge)}</span></div>`:""}<p>${esc(h.text)}</p>${h.cta?`<button class="btn ${h.fg==="dark"?"btn-p":"btn-w"}" data-route="${esc(h.link||"home")}">${esc(h.cta)}</button>`:""}</div><div class="art">${heroArt(h)}</div></div>`).join("")}
+      ${slides.length>1?`<div class="dots">${slides.map((h,i)=>`<button data-slide="${i}" aria-label="Show slide ${i+1}" aria-current="${i===S.slide}"></button>`).join("")}</div>`:""}
+    </div>
+    <div class="side">
+      <div class="promo" style="background:#fff;border:1px solid var(--line)"><div><h3>Click &amp; Collect<br>in 5 minutes</h3><p>Order from the car park. It's bagged before you reach the counter.</p><button class="lnk" data-collect>Switch to Click &amp; Collect</button></div><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6" aria-hidden="true"><path d="M4 9h16l-1 11H5Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/><path d="m9 14 2 2 4-4"/></svg></div>
+      ${(()=>{ const pr=(CFG.promos||[]).find(x=>x.active&&x.code); return pr?`<div class="promo" style="background:#1d1d1f;color:#fff"><div><h3>${pr.firstOnly?"First order?":"Save today."}<br>Take ${+pr.pct}% off.</h3><p>Use code <b style="color:#ff8a73;user-select:all">${esc(pr.code)}</b> at checkout.</p></div><div style="font-family:var(--f-head);font-weight:800;font-size:56px;color:#ff8a73;line-height:1">${+pr.pct}%</div></div>`:""; })()}
+    </div>
+  </section>
+  <section class="tiles" aria-label="Shop by department">${tiles.map(([id,n])=>`<a class="tile" href="#${id}"><span class="circ">${tileImg(id)}</span>${esc(n)}</a>`).join("")}</section>
+  ${shelf("Featured",V.filter(p=>p.featured).slice(0,16),"")}
+  ${shelf("This week's specials",V.filter(p=>p.was).slice(0,16),"specials")}
+  ${shelf("Nepali favourites",V.filter(isNepali).slice(0,14),"nepali")}
+  ${secShelves}
+  <section class="ways">
+    <div class="way"><span class="k">${fmtH(+CFG.cutoffHour)}</span><h3>Same-day delivery</h3><p>Order before ${fmtH(+CFG.cutoffHour)} and it arrives today in the window you choose. Free over ${money(CFG.freeOver)}, otherwise ${money(CFG.deliveryFee)}.</p></div>
+    <div class="way"><span class="k">5 min</span><h3>Click &amp; Collect</h3><p>Choose ASAP and we pick and pack within 5 minutes. Pay at the counter.</p></div>
+    <div class="way"><span class="k">Late</span><h3>Late orders</h3><p>Ordered after ${fmtH(+CFG.cutoffHour)}? Choose the late run. If we can still get to you tonight, we will, and we call to confirm.</p></div>
+  </section></div>`;
+}
+
+/* ============ BROWSE ============ */
+function searchMatch(p,q){ const h=(p.name+" "+p.brand+" "+p.sub+" "+(p.alias||"")+" "+secName(p.sec)+" "+(p.sku||"")).toLowerCase(); return q.split(/\s+/).every(w=>h.includes(w)); }
+function browseHTML(r){
+  const sec=secById(r);
+  let base=visible(), title="", desc="";
+  if(sec){ base=base.filter(p=>p.sec===r); title=sec.name; desc=sec.desc; if(!sec.visible) base=[]; }
+  else if(r==="specials"){ base=base.filter(p=>p.was); title="Specials"; desc="Lower prices this week, while stocks last."; }
+  else if(r==="nepali"){ base=base.filter(isNepali); title="Nepali favourites"; desc="Gundruk, timur, jimbu, chiura, Wai Wai, sel roti mix, Ilam tea, dalle achar and momo."; }
+  else { const q=S.q.trim().toLowerCase(); title=q?`Results for “${S.q.trim()}”`:"Search"; base=q?base.filter(p=>searchMatch(p,q)):[]; desc=q?"":"Type in the search bar above."; }
+  const subs=[...new Set(base.map(p=>p.sub))].sort();
+  let list=base.filter(p=>(!S.fsub.size||S.fsub.has(p.sub))&&[...S.ftag].every(t=>t==="sale"?p.was:p.tags.includes(t)));
+  if(S.fprice){ const [a,b]=S.fprice.split("-"); list=list.filter(p=>p.price>=+a&&(b===""||p.price<+b)); }
+  list.sort({pop:relSort,low:(a,b)=>a.price-b.price,high:(a,b)=>b.price-a.price,az:(a,b)=>a.name.localeCompare(b.name)}[S.sort]);
+  const cnt=t=>base.filter(p=>t==="sale"?p.was:p.tags.includes(t)).length;
+  const TAGN={halal:"Halal",veg:"Vegetarian",nepali:"Nepali favourites",sale:"On special"}, PRN={"0-5":"Under $5","5-10":"$5 to $10","10-20":"$10 to $20","20-":"$20 and over"};
+  const chips=[...[...S.fsub].map(s=>["sub:"+s,s]),...[...S.ftag].map(t=>["tag:"+t,TAGN[t]]),...(S.fprice?[["price:",PRN[S.fprice]]]:[])];
+  const nf=chips.length, page=list.slice(0,S.limit);
+  return `<div class="wrap">
+  <div class="crumb"><button data-route="home">Home</button><span>/</span><span>${esc(title)}</span></div>
+  <div class="ph"><div><h1>${esc(title)}</h1>${desc?`<div class="cnt">${esc(desc)}</div>`:""}</div></div>
+  <div class="browse-l">
+    <aside class="filters" id="filters" aria-label="Filters">
+      <div class="fg" style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">Filter</h4><button class="lnk" data-fclear>Clear all</button></div>
+      ${subs.length>1?`<div class="fg"><h4>Category</h4><div class="scroll">${subs.map(s=>`<label><input type="checkbox" data-fsub="${esc(s)}" ${S.fsub.has(s)?"checked":""}>${esc(s)}<span>${base.filter(p=>p.sub===s).length}</span></label>`).join("")}</div></div>`:""}
+      <div class="fg"><h4>Product</h4>${[["sale","On special"],["nepali","Nepali favourites"],["halal","Halal"],["veg","Vegetarian"]].filter(([t])=>cnt(t)).map(([t,n])=>`<label><input type="checkbox" data-ftag="${t}" ${S.ftag.has(t)?"checked":""}>${n}<span>${cnt(t)}</span></label>`).join("")||'<span style="font-size:13px;color:var(--muted)">No options</span>'}</div>
+      <div class="fg"><h4>Price</h4>${[["","Any price"],...Object.entries(PRN)].map(([v,n])=>`<label><input type="radio" name="fp" data-fprice="${v}" ${S.fprice===v?"checked":""}>${n}</label>`).join("")}</div>
+      <div class="fg fbtn"><button class="btn btn-p" style="width:100%" data-fclose>Show ${list.length} products</button></div>
+    </aside>
+    <div style="min-width:0">
+      <div class="tbar"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn btn-o fbtn" data-fopen style="padding:8px 14px">Filters${nf?` (${nf})`:""}</button><span class="num" style="font-size:14px;color:var(--muted)">${list.length} products</span><div class="active-f">${chips.map(([k,n])=>`<button class="af" data-unf="${esc(k)}">${esc(n)} <span aria-hidden="true">×</span></button>`).join("")}</div></div>
+        <label style="display:flex;gap:8px;align-items:center;font-size:14px">Sort by <select id="sort">${[["pop","Relevance"],["low","Price low to high"],["high","Price high to low"],["az","Name A to Z"]].map(([v,n])=>`<option value="${v}" ${S.sort===v?"selected":""}>${n}</option>`).join("")}</select></label></div>
+      <div class="grid">${page.length?page.map(p=>cardHTML(p)).join(""):`<div class="none"><h3 style="font-size:22px;margin-bottom:6px">${r==="search"&&!S.q.trim()?"Search for a product":"No products match"}</h3>${IMPORT_LOADING?"The full range is still loading. Give it a moment.":`Try a different word, like dal, momo or goat${nf?", or clear the filters":""}.`}${nf?`<div style="margin-top:14px"><button class="btn btn-o" data-fclear>Clear filters</button></div>`:""}</div>`}</div>
+      ${list.length>page.length?`<div class="more"><button class="btn btn-o" data-more>Show more (${list.length-page.length} left)</button></div>`:""}
+    </div>
+  </div></div>`;
+}
+
+/* ============ PRODUCT DETAIL ============ */
+let galIdx=0;
+function openProduct(id,keepGal){
+  const p=prod(id); if(!p) return; if(!keepGal) galIdx=0;
+  const sel=p.perKg?selW(p):null, key=p.perKg?id+"|"+sel:id, q=S.cart[key]||0, mult=p.perKg?wMult(p,sel):1, z=p.zoneEff;
+  const nImg=Math.max(1,p.photos.length);
+  $("#mBody").innerHTML=`<div class="pd"><div><div class="pimg">${p.was?`<span class="tagS">SAVE ${money((p.was-p.price)*mult)}</span>`:""}${imgHTML(p,Math.min(galIdx,nImg-1))}</div>
+     ${p.photos.length>1?`<div class="gal">${p.photos.map((ph,i)=>`<button data-gal="${i}" data-pid="${esc(id)}" aria-current="${i===galIdx}" aria-label="Photo ${i+1}"><img src="${esc(ph.url)}" alt=""></button>`).join("")}</div>`:""}</div>
+   <div><div class="brand">${esc(p.brand||secName(p.sec))}</div><h2>${esc(p.name)}</h2>
+    <div class="pr">${priceHTML(p.price*mult,!!p.was)}<span class="cup num">${esc(cupPrice(p))}</span></div>
+    ${p.was?`<div class="was num" style="margin-top:4px">Was ${money(p.was*mult)}${p.saleEnds?` · Special ends ${esc(new Date(p.saleEnds+"T00:00").toLocaleDateString("en-AU",{day:"numeric",month:"short"}))}`:""}</div>`:""}
+    <div style="display:grid;gap:8px;margin-top:16px;max-width:320px">
+      ${p.perKg?`<select class="wsel" data-w="${esc(id)}" aria-label="Weight">${p.wl.map(w=>`<option ${w[0]===sel?"selected":""}>${esc(w[0])}</option>`).join("")}</select>`:""}
+      ${p.out?`<button class="addb" disabled>Out of stock</button>`:q?`<div class="stp"><button data-dec="${esc(key)}" aria-label="Remove one">−</button><span class="num">${q} in cart</span><button data-inc="${esc(key)}" aria-label="Add one">+</button></div>`:`<button class="addb" data-add="${esc(key)}">Add to cart</button>`}
+    </div>
+    <div class="meta">
+      ${p.size||p.perKg?`<div><b>Size</b>${p.perKg?"Sold by weight: "+esc(p.wl.map(w=>w[0]).join(", ")):esc(p.size)}</div>`:""}
+      ${p.short?`<div><b>About this product</b>${esc(p.short)}</div>`:""}
+      ${p.desc?`<div><b>Details</b><span style="white-space:pre-line">${esc(p.desc)}</span></div>`:""}
+      <div><b>Storage and packing</b>${z==="frozen"?"Frozen. Packed last in an insulated bag with ice packs.":z==="chilled"?"Chilled. Packed in a cool bag, separate from shelf items.":"Shelf stable."}</div>
+      ${p.tags.includes(HAL)?`<div><b>Halal</b>Halal certified.</div>`:p.sec==="meat"?`<div><b>Not halal</b>Cut and packed separately.</div>`:""}
+      ${p.sku?`<div><b>Product code</b>${esc(p.sku)}</div>`:""}
+    </div></div></div>`;
+  openModal();
+}
+function openModal(){ $("#modal").classList.add("on"); $("#scrim").classList.add("on"); }
+function closeAll(){ $("#modal").classList.remove("on"); $("#drawer").classList.remove("on"); $("#drawer").setAttribute("aria-hidden","true"); $("#scrim").classList.remove("on"); const f=$("#filters"); if(f) f.classList.remove("open"); }
+const modalIsProduct=()=>$("#modal").classList.contains("on")&&!!$("#mBody .pd");
+
+/* ============ TIME PICKER ============ */
+function slotPickerHTML(){
+  const days=slotDays(S.ful.mode);
+  let di=pickDay!=null?pickDay:days.findIndex(d=>S.ful.slot&&d.date===S.ful.slot.date); if(di<0) di=Math.max(0,days.findIndex(d=>d.slots.length));
+  const dd=days[di], now=syd(0);
+  return `<div class="seg" role="group" aria-label="Delivery or Click and Collect"><button type="button" data-fmode="delivery" aria-pressed="${S.ful.mode==="delivery"}">Delivery</button><button type="button" data-fmode="collect" aria-pressed="${S.ful.mode==="collect"}">Click &amp; Collect</button></div>
+   ${S.ful.mode==="delivery"?`<div class="field"><label for="pcIn">Delivery postcode</label><div style="display:flex;gap:8px"><input id="pcIn" inputmode="numeric" maxlength="4" value="${esc(S.ful.pc)}" placeholder="e.g. 2000" style="max-width:160px"><button type="button" class="btn btn-o" data-pccheck style="padding:8px 14px">Check</button></div><div id="pcMsg"></div></div>`:`<div class="msg info">Collect from <b>${esc(CFG.address)}</b>. Open ${fmtH(+CFG.openHour)} to ${fmtH(+CFG.closeHour)} every day.</div>`}
+   <div class="days">${days.map((d,i)=>`<button type="button" data-day="${i}" aria-pressed="${i===di}" ${d.slots.length?"":"disabled"}><b>${d.label}</b>${d.date}</button>`).join("")}</div>
+   <div class="slots">${dd.slots.length?dd.slots.map(s=>`<button type="button" class="slot" data-slot="${esc(s.v)}" data-sdate="${esc(dd.date)}" data-sday="${esc(dd.label)}" data-sl="${esc(s.l)}" aria-pressed="${!!(S.ful.slot&&S.ful.slot.v===s.v&&S.ful.slot.date===dd.date)}"><b>${esc(s.l)}</b><small>${esc(s.s)}${S.ful.mode==="delivery"&&s.v!=="late"?` · ${money(CFG.deliveryFee)}, free over ${money(CFG.freeOver)}`:""}</small></button>`).join(""):`<div class="msg info">No times left for this day.</div>`}</div>
+   ${S.ful.mode==="delivery"&&now.h>=CFG.cutoffHour&&now.h<CFG.lateRunUntil?`<div class="msg info">It's after ${fmtH(+CFG.cutoffHour)}. “Tonight, late run” means we'll try to deliver tonight and call you to confirm. If we can't, it comes in tomorrow's first window.</div>`:""}`;
+}
+function openFul(){ pickDay=null; $("#mBody").innerHTML=`<div class="fm"><h2>Delivery or Click &amp; Collect</h2><div id="fulPick" style="display:grid;gap:14px">${slotPickerHTML()}</div><button class="btn btn-p" data-fsave>Confirm time</button></div>`; openModal(); }
+function rerenderPicker(){ const el=$("#fulPick"); if(el) el.innerHTML=slotPickerHTML(); renderNav(); updateCartBits(); const sm=$("#sumTots"); if(sm) sm.innerHTML=totsHTML(totals()); }
+
+/* ============ CART DRAWER ============ */
+const ZL={shelf:"Shelf items",chilled:"Chilled, packed in a cool bag",frozen:"Frozen, packed separately with ice packs"};
+function renderCart(){
+  const t=totals();
+  if(!t.count){ $("#dBody").innerHTML=`<div class="none" style="margin-top:10px"><h3 style="font-size:22px;margin-bottom:6px">Your cart is empty</h3>Popular right now: chicken momo, Wai Wai and goat curry cut.<div style="margin-top:14px"><button class="btn btn-p" data-route="nepali">Shop Nepali favourites</button></div></div>`; $("#dFoot").innerHTML=""; return; }
+  const g={shelf:[],chilled:[],frozen:[]}; t.lines.forEach(l=>g[l.p.zoneEff].push(l));
+  const need=Math.max(0,CFG.freeOver-(t.sub-t.disc));
+  $("#dBody").innerHTML=`<div class="fsum"><div><b>${S.ful.mode==="delivery"?(S.ful.pc?"Delivery to "+esc(S.ful.pc):"Delivery"):"Click & Collect"}</b><br><span style="color:var(--muted)">${esc(slotText())}</span></div><button class="lnk" data-ful>Change</button></div>
+   ${S.ful.mode==="delivery"?`<div style="font-size:13.5px">${need>0?`Spend <b class="num">${money(need)}</b> more for free delivery`:`<b style="color:var(--ok)">You've unlocked free delivery</b>`}<div class="bar"><i style="width:${Math.min(100,(t.sub-t.disc)/CFG.freeOver*100)}%"></i></div></div>`:""}
+   ${Object.entries(g).filter(([,a])=>a.length).map(([z,a])=>`<div><div class="zh">${ZL[z]}</div>${a.map(l=>`<div class="cl"><div class="th">${imgHTML(l.p)}</div><div style="min-width:0"><div class="n">${esc(l.p.name)}</div><div class="m num">${esc(l.w||l.p.size||"")} · ${money(l.unit)} each</div></div><div style="display:grid;justify-items:end;gap:4px"><b class="num" style="font-size:14px">${money(l.unit*l.qty)}</b><div class="qs"><button data-dec="${esc(l.key)}" aria-label="Remove one">−</button><span class="num">${l.qty}</span><button data-inc="${esc(l.key)}" aria-label="Add one">+</button></div></div></div>`).join("")}</div>`).join("")}`;
+  const low=S.ful.mode==="delivery"&&t.sub<CFG.minDelivery;
+  $("#dFoot").innerHTML=`${totsHTML(t)}${low?`<div class="msg info">Delivery orders start at ${money(CFG.minDelivery)}. Add a little more or switch to Click &amp; Collect.</div>`:""}<button class="btn btn-p" style="height:50px" data-route="checkout" ${low?"disabled":""}>Checkout</button>`;
+}
+function totsHTML(t){ return `<div class="tots num"><span>Subtotal (${t.count} items)</span><span>${money(t.sub)}</span>${t.save?`<span style="color:#d9452f">Specials savings</span><span style="color:#d9452f">${money(t.save)}</span>`:""}${t.disc?`<span>Promo ${esc(S.promo.code)}</span><span style="color:var(--ok)">−${money(t.disc)}</span>`:""}<span>${S.ful.mode==="collect"?"Click & Collect":"Delivery fee"}</span><span>${t.fee?money(t.fee):"Free"}</span><span class="g">Total</span><span class="g">${money(t.total)}</span></div>`; }
+function openCart(){ renderCart(); $("#drawer").classList.add("on"); $("#drawer").setAttribute("aria-hidden","false"); $("#scrim").classList.add("on"); }
+
+/* ============ CHECKOUT ============ */
+function checkoutHTML(){
+  const t=totals();
+  if(!t.count) return `<div class="wrap"><div class="confirm"><h1>Your cart is empty</h1><p style="margin:0">Add some products before checking out.</p><div><button class="btn btn-p" data-route="home">Start shopping</button></div></div></div>`;
+  const d=ls.get("rv2_details",{}), del=S.ful.mode==="delivery";
+  return `<div class="wrap"><div class="crumb"><button data-route="home">Home</button><span>/</span><span>Checkout</span></div><div class="ph"><h1>Checkout</h1></div>
+  <form class="co" id="coForm" novalidate>
+   <div class="costack">
+    <section class="box"><h2><span class="n">1</span>Delivery or pick-up time</h2><div id="fulPick" style="display:grid;gap:14px">${slotPickerHTML()}</div></section>
+    <section class="box"><h2><span class="n">2</span>Your details</h2>
+      <div class="two"><div class="field"><label for="fName">Full name</label><input id="fName" autocomplete="name" value="${esc(d.name||"")}"></div><div class="field"><label for="fPhone">Mobile number</label><input id="fPhone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" value="${esc(d.phone||"")}"></div></div>
+      <div class="field"><label for="fEmail">Email for your receipt (optional)</label><input id="fEmail" type="email" autocomplete="email" value="${esc(d.email||"")}"></div>
+      <div id="addrBlock" ${del?"":"hidden"}><div style="display:grid;gap:12px"><div class="field"><label for="fAddr">Street address</label><input id="fAddr" autocomplete="street-address" value="${esc(d.addr||"")}"></div><div class="three"><div class="field"><label for="fSub">Suburb</label><input id="fSub" autocomplete="address-level2" value="${esc(d.sub||"")}"></div><div class="field"><label for="fState">State</label><input id="fState" value="NSW" readonly></div><div class="field"><label for="fPc">Postcode</label><input id="fPc" inputmode="numeric" maxlength="4" value="${esc(S.ful.pc||d.pc||"")}"></div></div></div></div>
+      <div class="field"><label for="fNote">Notes for our team (optional)</label><textarea id="fNote" rows="2" placeholder="Gate code, leave at the door, cut goat into small pieces…"></textarea></div>
+    </section>
+    <section class="box"><h2><span class="n">3</span>If an item is unavailable</h2><div class="opts">
+      <label class="opt"><input type="radio" name="subs" value="call" checked><span><b>Call me first</b><small>We call before swapping anything.</small></span></label>
+      <label class="opt"><input type="radio" name="subs" value="similar"><span><b>Swap for the closest brand or size</b><small>We never swap meat cuts without calling.</small></span></label>
+      <label class="opt"><input type="radio" name="subs" value="none"><span><b>Leave it out and refund me</b></span></label></div></section>
+    <section class="box"><h2><span class="n">4</span>Payment</h2><div class="opts">
+      ${window.LEPP_SQUARE?`<label class="opt"><input type="radio" name="pay" value="online" checked><span><b>Pay now by card</b><small>Secure online payment. Visa, Mastercard, Amex.</small></span><span class="pm"><span class="pmb">VISA</span><span class="pmb">MASTERCARD</span><span class="pmb">AMEX</span></span></label><div id="sqWrap"><div id="sq-card" style="min-height:90px"></div><div class="hint" id="sqMsg">Loading the secure card form…</div></div>`:""}
+      <label class="opt"><input type="radio" name="pay" value="card" ${window.LEPP_SQUARE?"":"checked"}><span><b>Card when you receive your order</b><small>Tap or insert at the door or counter. Phone wallets work too.</small></span><span class="pm"><span class="pmb">VISA</span><span class="pmb">MASTERCARD</span><span class="pmb">AMEX</span><span class="pmb">EFTPOS</span><span class="pmb">APPLE PAY</span><span class="pmb">GOOGLE PAY</span></span></label>
+      <label class="opt"><input type="radio" name="pay" value="payid"><span><b>PayID or bank transfer</b><small>We text you our PayID once your order is confirmed.</small></span><span class="pm"><span class="pmb">PAYID</span></span></label>
+      <label class="opt"><input type="radio" name="pay" value="cash"><span><b>Cash</b><small>Exact change helps our drivers.</small></span></label>
+    </div></section>
+   </div>
+   <aside class="box sum"><h2>Order summary</h2>
+     <div style="display:grid;gap:6px;max-height:260px;overflow:auto">${t.lines.map(l=>`<div style="display:flex;justify-content:space-between;gap:10px;font-size:13.5px"><span>${l.qty} × ${esc(l.p.name)}${l.w?` (${esc(l.w)})`:""}</span><b class="num">${money(l.unit*l.qty)}</b></div>`).join("")}</div>
+     <div style="display:flex;gap:8px"><input id="promoIn" aria-label="Promo code" placeholder="Promo code" value="${S.promo?esc(S.promo.code):""}" style="flex:1;min-width:0;border:1px solid var(--line-2);border-radius:6px;padding:9px 10px"><button type="button" class="btn btn-o" data-promo style="padding:8px 14px">${S.promo?"Applied":"Apply"}</button></div><div id="promoMsg"></div>
+     <div id="sumTots">${totsHTML(t)}</div>
+     <div id="coErr" aria-live="polite"></div>
+     <button class="btn btn-p" style="height:52px;font-size:16px" type="submit" id="placeBtn">Place order</button>
+     <p style="margin:0;font-size:12.5px;color:var(--muted)">${window.LEPP_SQUARE?"Pay now by card, or when you receive your order.":"You pay when you receive your order."} We text you when it's on the way or ready to collect.</p>
+   </aside>
+  </form></div>`;
+}
+function confirmHTML(){
+  const o=S.last||ls.get("rv2_orders",[])[0]; if(!o) return homeHTML();
+  const steps=o.mode==="collect"?["Received","Packing","Ready to collect","Collected"]:["Received","Packing","On the way","Delivered"];
+  const payTxt={card:"by card",cash:"in cash",payid:"by PayID",online:"online"}[o.pay];
+  return `<div class="wrap"><div class="confirm">
+   <div style="color:var(--ok);font-weight:700">Order placed</div><h1>Thanks, ${esc(o.name.split(" ")[0])}.</h1>
+   <div style="font-size:16px">Order number <b class="num" style="font-size:20px;user-select:all">${esc(o.no)}</b></div>
+   <div class="tl">${steps.map((s,i)=>`<div class="${i===0?"on":""}">${s}</div>`).join("")}</div>
+   <div class="msg ${o.mode==="collect"?"ok":"cold"}">${o.mode==="collect"?(o.slot==="asap"?"We're packing it now. It'll be ready at the counter in about 5 minutes.":`Ready to collect: ${esc(o.when)}.`):`Delivery: ${esc(o.when)}. We'll text ${esc(o.phone)} when the driver is 15 minutes away.`}</div>
+   <div style="display:grid;gap:4px;font-size:14px">${o.items.map(i=>`<div style="display:flex;justify-content:space-between;gap:10px"><span>${i.qty} × ${esc(i.name)}${i.size?` (${esc(i.size)})`:""}</span><span class="num">${money(i.unit*i.qty)}</span></div>`).join("")}<div style="display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:8px;margin-top:4px;font-weight:700"><span>${o.pay==="online"?"Total paid by card":`Total to pay ${payTxt} ${o.mode==="collect"?"at collection":"on delivery"}`}</span><span class="num">${money(o.total)}</span></div></div>
+   <p style="margin:0;font-size:14px">Questions? Call or WhatsApp <b style="user-select:all">${esc(CFG.phone)}</b> and quote ${esc(o.no)}.</p>
+   <div><button class="btn btn-p" data-route="home">Continue shopping</button></div></div></div>`;
+}
+function ordersHTML(){
+  const r=ls.get("rv2_orders",[]);
+  return `<div class="wrap"><div class="crumb"><button data-route="home">Home</button><span>/</span><span>My orders</span></div><div class="ph"><h1>My orders</h1></div>
+  <div style="display:grid;gap:10px;max-width:760px;padding-bottom:40px">${r.length?r.map((o,i)=>`<div class="ord"><div class="t"><b class="num">${esc(o.no)} · ${money(o.total)}</b><span style="color:var(--muted)">${new Date(o.createdAt).toLocaleDateString("en-AU",{day:"numeric",month:"short",timeZone:"Australia/Sydney"})}</span></div><div>${o.mode==="collect"?"Click & Collect":"Delivery"} · ${esc(o.when)} · ${o.items.length} products</div><div><button class="btn btn-o" style="padding:7px 12px" data-reorder="${i}">Add all to cart</button></div></div>`).join(""):`<div class="none">You haven't ordered on this device yet.<div style="margin-top:14px"><button class="btn btn-p" data-route="home">Start shopping</button></div></div>`}</div></div>`;
+}
+function helpHTML(){
+  const q=[["When will my delivery arrive?",`Order before ${fmtH(+CFG.cutoffHour)} and choose a window today. After ${fmtH(+CFG.cutoffHour)}, choose “Tonight, late run” until ${fmtH(+CFG.lateRunUntil)} and we'll call to confirm, or pick a time tomorrow.`],["How much is delivery?",`${money(CFG.deliveryFee)}, or free on orders over ${money(CFG.freeOver)}. The minimum delivery order is ${money(CFG.minDelivery)}.`],["How does Click & Collect work?","Choose Click & Collect and ASAP. We pick and pack within 5 minutes. Give your order number at the counter and pay there."],["What if something is out of stock?","You choose at checkout: call me first, swap for the closest brand or size, or leave it out. We never swap meat cuts without calling."],["Is your meat halal?","Products marked Halal are halal certified. Pork is cut and packed separately and is not halal."],["How are chilled and frozen items packed?","Chilled items go in cool bags. Frozen items are packed last, separately, with ice packs."],["How can I pay?","Card on delivery or at the counter (Visa, Mastercard, Amex, eftpos, Apple Pay, Google Pay), PayID, or cash."]];
+  return `<div class="wrap"><div class="crumb"><button data-route="home">Home</button><span>/</span><span>Help</span></div><div class="ph"><h1>Help and delivery</h1></div><div style="display:grid;gap:10px;max-width:760px;padding-bottom:40px">${q.map(([a,b])=>`<details class="ord"><summary style="font-weight:700;cursor:pointer">${a}</summary><p style="margin:6px 0 0;color:var(--ink-2)">${b}</p></details>`).join("")}</div></div>`;
+}
+
+/* ============ SQUARE CARD FORM (hosted site only) ============ */
+const SQ={card:null,busy:false};
+async function mountSquare(){
+  const cfg=window.LEPP_SQUARE, el=$("#sq-card"), msg=$("#sqMsg"); if(!cfg||!el||SQ.busy) return;
+  SQ.busy=true;
+  try{
+    if(!window.Square) await new Promise((ok,no)=>{ const sc=document.createElement("script"); sc.src=cfg.env==="production"?"https://web.squarecdn.com/v1/square.js":"https://sandbox.web.squarecdn.com/v1/square.js"; sc.onload=ok; sc.onerror=no; document.head.appendChild(sc); });
+    if(SQ.card){ try{ await SQ.card.destroy(); }catch(e){} SQ.card=null; }
+    const payments=window.Square.payments(cfg.appId,cfg.locationId);
+    SQ.card=await payments.card(); await SQ.card.attach("#sq-card"); if(msg) msg.textContent="";
+  }catch(e){ if(msg) msg.textContent="The card form didn't load. Choose another payment option, or refresh to try again."; }
+  SQ.busy=false;
+}
+function syncPay(){ const w=$("#sqWrap"); if(!w) return; const v=(document.querySelector('[name="pay"]:checked')||{}).value; w.hidden=v!=="online"; if(v==="online"&&!SQ.card) mountSquare(); }
+
+/* ============ PLACE ORDER ============ */
+async function placeOrder(){
+  const err=$("#coErr"), del=S.ful.mode==="delivery", bad=m=>{err.innerHTML=`<div class="msg bad">${m}</div>`;};
+  const name=$("#fName").value.trim(), phone=$("#fPhone").value.trim(), email=$("#fEmail").value.trim();
+  if(!S.ful.slot) return bad("Choose a delivery or pick-up time.");
+  if(!name) return bad("Add your name so we know whose order it is.");
+  if(!/^[\d\s+()-]{8,}$/.test(phone)) return bad("Add a mobile number so we can text you updates.");
+  let addr="",sub="",pc="";
+  if(del){ addr=$("#fAddr").value.trim(); sub=$("#fSub").value.trim(); pc=$("#fPc").value.trim(); if(!addr||!sub) return bad("Add your street address and suburb."); const c=checkPostcode(pc); if(!c.ok) return bad(c.msg); S.ful.pc=pc; saveFul(); }
+  const t=totals(); if(!t.count) return bad("Your cart is empty.");
+  if(del&&t.sub<CFG.minDelivery) return bad(`Delivery orders start at ${money(CFG.minDelivery)}. Add a little more or switch to Click & Collect.`);
+  const f=$("#coForm");
+  const o={no:"LP"+Date.now().toString().slice(-7),createdAt:Date.now(),mode:S.ful.mode,slot:S.ful.slot.v,when:slotText(),name,phone,email,address:addr,suburb:sub,postcode:pc,
+    subs:f.querySelector('[name="subs"]:checked').value,pay:f.querySelector('[name="pay"]:checked').value,notes:$("#fNote").value.trim(),
+    items:t.lines.map(l=>({key:l.key,name:l.p.name,size:l.w||l.p.size||"",qty:l.qty,unit:r2(l.unit)})),
+    subtotal:r2(t.sub),discount:r2(t.disc),fee:r2(t.fee),total:r2(t.total),promo:S.promo?S.promo.code:"",status:"new"};
+  const b=$("#placeBtn"); b.disabled=true; b.textContent=o.pay==="online"?"Taking payment…":"Placing your order…";
+  if(window.LEPP_API){
+    try{
+      let sourceId=null;
+      if(o.pay==="online"){ if(!SQ.card) throw {message:"The card form hasn't loaded. Refresh the page or choose another payment option."}; const tk=await SQ.card.tokenize(); if(tk.status!=="OK") throw {message:"Check your card details and try again."}; sourceId=tk.token; }
+      const res=await window.LEPP_API.placeOrder(o,sourceId);
+      Object.assign(o,res.order||{});
+    }catch(er){ b.disabled=false; b.textContent="Place order"; return bad(esc(er&&er.message||"We couldn't place your order. Try again.")); }
+  } else if(db){ try{ await db.collection("orders").doc(o.no).set(o); }catch(e){} }
+  ls.set("rv2_details",{name,phone,email,addr,sub,pc});
+  const r=ls.get("rv2_orders",[]); r.unshift(o); ls.set("rv2_orders",r.slice(0,12));
+  if(S.promo&&S.promo.firstOnly) ls.set("rv2_promo_used",true);
+  S.last=o; S.cart={}; S.promo=null; saveCart(); go("confirmed");
+}
+
+/* =====================================================================
+   ADMIN
+   ===================================================================== */
+let db=null, assets=null, downloads=null, isStaff=false, orders=[], IMPORT_LOADING=false, loadedUrl=null;
+const A={tab:"products", q:"", sec:"", status:"", sort:"name", page:0, per:50, sel:new Set(), edit:null, editId:null, editBase:null, isNew:false, copyImg:null, removed:[], cfg:null, busy:null, confirm:null};
+const NEXT={new:"packing",packing:"ready",ready:"done"}, NEXTL={new:"Start packing",packing:"Mark ready or out for delivery",ready:"Mark completed"};
+const TAGS=[[NE,"Nepali favourite"],[HAL,"Halal"],[VEG,"Vegetarian"]];
+const clone=o=>JSON.parse(JSON.stringify(o));
+function mergeCfg(d){ const c=Object.assign(clone(DEF),d||{}); const ids=new Set((c.sections||[]).map(s=>s.id)); DEF.sections.forEach(s=>{ if(!ids.has(s.id)) c.sections.push(clone(s)); }); return c; }
+const hasPhoto=p=>p.photos.length||p.img||p.shape;
+
+async function pool(items,fn,n,onProg){ let i=0,done=0; await Promise.all(Array.from({length:Math.min(n,items.length)},async()=>{ while(i<items.length){ const it=items[i++]; try{ await fn(it); }catch(e){ console.warn(e); } done++; onProg&&onProg(done,items.length); } })); }
+async function writeOv(id,patch){ const cur=OV[id]||{}; const doc=Object.assign({},cur,patch,{updatedAt:Date.now()}); Object.keys(doc).forEach(k=>doc[k]===undefined&&delete doc[k]); OV[id]=doc; await db.collection("products").doc(id).set(doc); }
+function pickEdit(p){ const e={}; EDIT_KEYS.forEach(k=>e[k]=clone(p[k]??BASE_DEF[k]??null)); return e; }
+
+function adminHTML(){
+  const AUTH=window.LEPP_RT&&window.LEPP_RT.auth;
+  if(!isStaff&&AUTH) return `<div class="wrap"><form class="confirm" id="loginForm" novalidate style="max-width:440px"><h1>Staff sign in</h1>${AUTH.email?`<div class="msg info">Signed in as ${esc(AUTH.email)}, but this account isn't set up as staff.</div>`:""}<div class="field"><label for="lgEmail">Email</label><input id="lgEmail" type="email" autocomplete="username"></div><div class="field"><label for="lgPw">Password</label><input id="lgPw" type="password" autocomplete="current-password"></div><div id="lgErr"></div><button class="btn btn-p" type="submit">Sign in</button>${AUTH.email?`<button class="btn btn-o" type="button" data-signout>Sign out</button>`:""}</form></div>`;
+  if(!isStaff) return `<div class="wrap"><div class="confirm"><h1>Admin</h1><p style="margin:0">${db?"Only the store owner and editors can open the admin.":"Please sign in to open the admin."}</p><div><button class="btn btn-p" data-route="home">Back to shop</button></div></div></div>`;
+  const openOrders=orders.filter(o=>o.status!=="done").length;
+  const T=[["products","Products",CATALOG.length],["orders","Orders",openOrders||""],["sections","Sections & homepage",""],["settings","Store settings",""],["import","Import & export",""]];
+  let body="";
+  if(A.tab==="products") body=A.edit?editorHTML():productListHTML();
+  else if(A.tab==="orders") body=ordersAdminHTML();
+  else if(A.tab==="sections") body=sectionsHTML();
+  else if(A.tab==="settings") body=settingsHTML();
+  else body=importHTML();
+  return `<div class="wrap"><div class="adm"><nav class="anav" aria-label="Admin">${T.map(([id,n,c])=>`<button data-atab="${id}" aria-current="${A.tab===id}"><span>${n}</span><span class="ct num">${c}</span></button>`).join("")}<button data-route="home"><span>View shop</span><span class="ct">↗</span></button>${window.LEPP_RT&&window.LEPP_RT.auth?`<button data-signout><span>Sign out</span><span class="ct"></span></button>`:""}</nav><div style="min-width:0">${body}</div></div></div>`;
+}
+
+/* ---------- products list ---------- */
+function adminFiltered(){
+  let L=CATALOG.slice(); const q=A.q.trim().toLowerCase();
+  if(q) L=L.filter(p=>searchMatch(p,q)||p.id.toLowerCase()===q);
+  if(A.sec) L=L.filter(p=>p.sec===A.sec);
+  const st=A.status;
+  if(st==="visible") L=L.filter(shown); else if(st==="hidden") L=L.filter(p=>!shown(p));
+  else if(st==="out") L=L.filter(p=>p.out); else if(st==="special") L=L.filter(p=>p.was||p.special);
+  else if(st==="custom") L=L.filter(p=>p.src==="custom"); else if(st==="edited") L=L.filter(p=>p.edited);
+  else if(st==="nophoto") L=L.filter(p=>!hasPhoto(p)); else if(st==="featured") L=L.filter(p=>p.featured);
+  const S2={name:(a,b)=>a.name.localeCompare(b.name), plow:(a,b)=>a.price-b.price, phigh:(a,b)=>b.price-a.price, sec:(a,b)=>a.sec.localeCompare(b.sec)||a.sub.localeCompare(b.sub)||a.name.localeCompare(b.name), upd:(a,b)=>((OV[b.id]||{}).updatedAt||0)-((OV[a.id]||{}).updatedAt||0)};
+  return L.sort(S2[A.sort]||S2.name);
+}
+function productListHTML(){
+  const L=adminFiltered(), pages=Math.max(1,Math.ceil(L.length/A.per)); if(A.page>=pages) A.page=pages-1;
+  const pg=L.slice(A.page*A.per,(A.page+1)*A.per), allSel=pg.length&&pg.every(p=>A.sel.has(p.id));
+  const V=CATALOG.filter(shown);
+  const stat=`<div class="stat"><div><b class="num">${CATALOG.length.toLocaleString()}</b><span>Products in total</span></div><div><b class="num">${V.length.toLocaleString()}</b><span>Showing in the shop</span></div><div><b class="num">${V.filter(p=>p.was).length}</b><span>On special</span></div><div><b class="num">${CATALOG.filter(p=>p.out).length}</b><span>Out of stock</span></div></div>`;
+  const secOpts=CFG.sections.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("");
+  const bulk=A.sel.size?`<div class="bulk"><b>${A.sel.size.toLocaleString()} selected</b>
+    <select id="bkAct" aria-label="Bulk action"><option value="">Choose an action…</option><option value="show">Show in shop</option><option value="hide">Hide from shop</option><option value="instock">Mark in stock</option><option value="outstock">Mark out of stock</option><option value="special">Put on special (% off)</option><option value="endspecial">End special</option><option value="feature">Feature on homepage</option><option value="unfeature">Stop featuring</option><option value="section">Move to section</option><option value="category">Set category</option><option value="price">Change price by %</option><option value="reset">Undo my changes (back to original)</option><option value="delete">Delete (products I created)</option></select>
+    <span id="bkParam"></span>
+    <button class="btn btn-w" data-bkgo>Apply</button><button class="btn" style="color:#fff;text-decoration:underline" data-bkclear>Clear selection</button></div>`:"";
+  return `<div class="ahead"><div><h1>Products</h1><p>Add, edit, photograph and price everything in the shop.</p></div><div style="display:flex;gap:8px"><button class="btn btn-p" data-anew>+ Add product</button></div></div>
+  ${stat}
+  <div class="atools"><input type="search" id="aq" placeholder="Search name, category, code…" value="${esc(A.q)}" aria-label="Search products">
+    <select id="asec" aria-label="Section"><option value="">All sections</option>${CFG.sections.map(s=>`<option value="${s.id}" ${A.sec===s.id?"selected":""}>${esc(s.name)}${s.visible?"":" (hidden)"}</option>`).join("")}</select>
+    <select id="ast" aria-label="Status">${[["","Any status"],["visible","Showing in shop"],["hidden","Hidden"],["special","On special"],["out","Out of stock"],["featured","Featured"],["nophoto","No photo"],["edited","Edited by me"],["custom","Added by me"]].map(([v,n])=>`<option value="${v}" ${A.status===v?"selected":""}>${n}</option>`).join("")}</select>
+    <select id="asort" aria-label="Sort">${[["name","Name A–Z"],["sec","Section"],["plow","Price low–high"],["phigh","Price high–low"],["upd","Recently edited"]].map(([v,n])=>`<option value="${v}" ${A.sort===v?"selected":""}>${n}</option>`).join("")}</select></div>
+  ${bulk}
+  <div class="atab"><table><thead><tr><th><input type="checkbox" data-aselall ${allSel?"checked":""} aria-label="Select all on this page"></th><th></th><th>Product</th><th>Section / category</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody>
+  ${pg.map(p=>`<tr><td><input type="checkbox" data-asel="${esc(p.id)}" ${A.sel.has(p.id)?"checked":""} aria-label="Select ${esc(p.name)}"></td><td><div class="th">${imgHTML(p)}</div></td>
+   <td class="nm"><button data-aedit="${esc(p.id)}" style="text-align:left;font-weight:600">${esc(p.name)}</button><small>${esc([p.brand,p.size,p.sku].filter(Boolean).join(" · "))}${p.brand||p.size||p.sku?" · ":""}Code ${esc(p.id)}</small></td>
+   <td>${esc(secName(p.sec))}<br><span style="color:var(--muted)">${esc(p.sub)}</span></td>
+   <td class="num"><b>${money(p.price)}</b>${p.perKg?" /kg":""}${p.was?`<br><s style="color:var(--muted)">${money(p.was)}</s>`:""}</td>
+   <td><div style="display:flex;gap:4px;flex-wrap:wrap">${shown(p)?'<span class="pill on">Showing</span>':'<span class="pill hid">Hidden</span>'}${p.out?'<span class="pill off">Out of stock</span>':""}${p.was?'<span class="pill sale">Special</span>':""}${p.featured?'<span class="pill">Featured</span>':""}${!hasPhoto(p)?'<span class="pill">No photo</span>':""}</div></td>
+   <td><button class="btn btn-o" style="padding:6px 12px" data-aedit="${esc(p.id)}">Edit</button></td></tr>`).join("")||`<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--muted)">${IMPORT_LOADING?"Loading the full catalogue…":"No products match these filters."}</td></tr>`}
+  </tbody></table></div>
+  <div class="pager"><span class="num">${L.length?`${(A.page*A.per+1).toLocaleString()}–${Math.min(L.length,(A.page+1)*A.per).toLocaleString()} of ${L.length.toLocaleString()}`:"0 products"}${L.length>pg.length&&!(L.every(p=>A.sel.has(p.id)))?` · <button class="lnk" data-aselmatch>Select all ${L.length.toLocaleString()} matching</button>`:""}</span><div class="btns"><button class="btn btn-o" style="padding:6px 12px" data-apage="-1" ${A.page?"":"disabled"}>Previous</button><button class="btn btn-o" style="padding:6px 12px" data-apage="1" ${A.page<pages-1?"":"disabled"}>Next</button></div></div>`;
+}
+function bulkParamHTML(act){
+  if(act==="special") return `<input id="bkP" type="number" min="1" max="90" placeholder="% off" style="width:80px" aria-label="Percent off"> <input id="bkP2" type="date" aria-label="Special ends (optional)" title="Special ends (optional)">`;
+  if(act==="price") return `<input id="bkP" type="number" step="0.1" placeholder="e.g. 5 or -10" style="width:120px" aria-label="Percent change">`;
+  if(act==="section") return `<select id="bkP" aria-label="Section">${CFG.sections.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("")}</select>`;
+  if(act==="category") return `<input id="bkP" placeholder="Category name" list="catList" aria-label="Category"><datalist id="catList">${[...new Set(CATALOG.map(p=>p.sub))].sort().map(s=>`<option value="${esc(s)}">`).join("")}</datalist>`;
+  return "";
+}
+async function bulkApply(){
+  const act=($("#bkAct")||{}).value; if(!act) return toast("Choose an action first.");
+  const P1=$("#bkP")?$("#bkP").value.trim():"", P2=$("#bkP2")?$("#bkP2").value:"";
+  const ids=[...A.sel].filter(id=>CMAP[id]);
+  let fn;
+  if(act==="show") fn=id=>{ const p=CMAP[id]; const patch={hidden:false}; return writeOv(id,patch).then(()=>!secVisible(p.sec)&&(A.warnSec=p.sec)); };
+  else if(act==="hide") fn=id=>writeOv(id,{hidden:true});
+  else if(act==="instock") fn=id=>writeOv(id,{stock:true,qty:(CMAP[id].qty!=null&&+CMAP[id].qty<=0)?null:CMAP[id].qty});
+  else if(act==="outstock") fn=id=>writeOv(id,{stock:false});
+  else if(act==="feature") fn=id=>writeOv(id,{featured:true});
+  else if(act==="unfeature") fn=id=>writeOv(id,{featured:false});
+  else if(act==="endspecial") fn=id=>writeOv(id,{special:null,saleEnds:""});
+  else if(act==="special"){ const pct=num(P1); if(!(pct>0&&pct<90)) return toast("Enter a % off between 1 and 89."); fn=id=>{ const p=CMAP[id]; return writeOv(id,{special:r2(p.regular*(1-pct/100)),saleEnds:P2||""}); }; }
+  else if(act==="price"){ const pct=num(P1); if(pct==null||pct<=-90) return toast("Enter a % change, e.g. 5 or -10."); fn=id=>{ const p=CMAP[id]; const reg=r2(p.regular*(1+pct/100)); const patch={regular:reg}; if(p.special!=null&&p.special!=="") patch.special=r2(p.special*(1+pct/100)); return writeOv(id,patch); }; }
+  else if(act==="section"){ if(!secById(P1)) return toast("Choose a section."); fn=id=>writeOv(id,{sec:P1}); }
+  else if(act==="category"){ if(!P1) return toast("Type a category name."); fn=id=>writeOv(id,{sub:P1}); }
+  else if(act==="reset"){ fn=id=>{ if(CMAP[id].src==="custom"||!OV[id]) return; delete OV[id]; return db.collection("products").doc(id).delete(); }; }
+  else if(act==="delete"){ const own=ids.filter(id=>CMAP[id].src==="custom"); if(!own.length) return toast("Only products you added can be deleted. Hide the others instead."); if(A.confirm!=="bulkdel"){ A.confirm="bulkdel"; return toast(`Click Apply again to delete ${own.length} product${own.length>1?"s":""} for good.`); } A.confirm=null; ids.length=0; ids.push(...own); fn=id=>{ const ph=(OV[id]||{}).photos||[]; delete OV[id]; return db.collection("products").doc(id).delete().then(()=>Promise.all(ph.map(x=>x.id&&assets?assets.delete(x.id).catch(()=>{}):0))); }; }
+  if(!fn) return;
+  A.warnSec=null; toast(`Updating ${ids.length} products…`);
+  await pool(ids,fn,4,(d,t)=>{ if(d%25===0||d===t) toast(`Updated ${d} of ${t}`); });
+  rebuild(); A.sel.clear(); renderView(); toast(`Done. ${ids.length} product${ids.length>1?"s":""} updated.`+(A.warnSec?` Note: the ${secName(A.warnSec)} section is hidden. Turn it on in Sections & homepage.`:""));
+}
+
+/* ---------- product editor ---------- */
+const ART_KEYS=["img","shape","col","fill","lab","alias","pop"];
+const pickArt=o=>{ const a={}; ART_KEYS.forEach(k=>{ if(o&&o[k]!=null) a[k]=o[k]; }); return a; };
+function startEdit(id){ const p=prod(id); if(!p) return; A.editId=id; A.isNew=false; A.edit=pickEdit(p); A.editBase=BASEMAP[id]||null; A.copyArt=p.src==="custom"?pickArt(OV[id]):{}; A.removed=[]; A.confirm=null; A.tab="products"; renderView(); window.scrollTo(0,0); }
+function newProduct(fromId){
+  const id="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+  let e;
+  if(fromId){ const p=prod(fromId); e=pickEdit(p); e.name=p.name+" (copy)"; e.sku=""; e.hidden=true; e.photos=clone(p.photos); A.copyArt=pickArt(p); }
+  else { e=pickEdit(Object.assign({},BASE_DEF,{name:"",sec:A.sec||"dry",sub:"",regular:null})); A.copyArt={}; }
+  A.editId=id; A.isNew=true; A.edit=e; A.editBase=null; A.removed=[]; A.confirm=null; A.tab="products"; renderView(); window.scrollTo(0,0);
+}
+function editPreview(){ const base=A.editBase||{}; const p=derive(Object.assign({},BASE_DEF,base,A.editBase?{}:A.copyArt||{},{id:A.editId,src:A.editBase?base.src:"custom"},clone(A.edit),{regular:A.edit.regular??0})); return p; }
+function fld(label,inner,hint){ return `<div class="field"><label>${label}${hint?` <span class="hint">${hint}</span>`:""}</label>${inner}</div>`; }
+function editorHTML(){
+  const e=A.edit, base=A.editBase, subs=[...new Set(CATALOG.filter(p=>p.sec===e.sec).map(p=>p.sub))].sort();
+  const pv=editPreview();
+  const v=(k)=>esc(e[k]??"");
+  return `<div class="edbar"><div><button class="lnk" data-aback>← All products</button><h1 style="font-size:30px;margin-top:6px">${A.isNew?"New product":esc(e.name||"Untitled")}</h1><div class="hint">Code ${esc(A.editId)}${base?` · ${base.src==="import"?"Imported product":"Starter range product"}`:" · Added by you"}</div></div>
+   <div class="acts"><button class="btn btn-o" data-acancel>Cancel</button>${A.isNew?"":`<button class="btn btn-o" data-adup>Duplicate</button>`}<button class="btn btn-p" data-asave>Save product</button></div></div>
+  <div class="ed"><form id="edForm" class="costack" novalidate>
+   <section class="box"><h2>Basics</h2>
+     ${fld("Product name","<input data-ef='name' value='"+v("name")+"' placeholder='e.g. Chicken Momo 20 Pack'>")}
+     <div class="three">${fld("Brand",`<input data-ef="brand" value="${v("brand")}" placeholder="e.g. Haldiram's">`)}${fld("Size or pack",`<input data-ef="size" value="${v("size")}" placeholder="e.g. 500g">`)}${fld("Product code / SKU",`<input data-ef="sku" value="${v("sku")}">`)}</div>
+     <div class="two">${fld("Section",`<select data-ef="sec">${CFG.sections.map(s=>`<option value="${s.id}" ${e.sec===s.id?"selected":""}>${esc(s.name)}${s.visible?"":" (hidden)"}</option>`).join("")}</select>`)}${fld("Category",`<input data-ef="sub" value="${v("sub")}" list="subList" placeholder="Pick or type a new one"><datalist id="subList">${subs.map(s=>`<option value="${esc(s)}">`).join("")}</datalist>`,"type a new name to create a category")}</div>
+   </section>
+   <section class="box"><h2>Price and specials</h2>
+     <div class="three">${fld("Regular price ($)",`<input data-ef="regular" type="number" step="0.01" min="0" value="${e.regular??""}">`)}${fld("Special price ($)",`<input data-ef="special" type="number" step="0.01" min="0" value="${e.special??""}" placeholder="None">`,"leave empty for no special")}${fld("Or % off",`<input id="edPct" type="number" min="1" max="89" placeholder="e.g. 15">`,"fills in the special price")}</div>
+     <div class="two">${fld("Special ends",`<input data-ef="saleEnds" type="date" value="${v("saleEnds")}">`,"optional; the price goes back after this day")}${fld("Most a customer can buy",`<input data-ef="maxQty" type="number" min="1" value="${e.maxQty??""}" placeholder="No limit">`)}</div>
+     <label class="chk"><input type="checkbox" data-ef="perKg" ${e.perKg?"checked":""}> Sold by weight (price above is per kg)</label>
+     <div id="wBox" ${e.perKg?"":"hidden"}>${fld("Weight choices",`<input data-ef="weights" value="${v("weights")||WEIGHTS_DEF}">`,"label=kg, separated by commas, e.g. 500g=0.5, 1kg=1, 2kg=2")}</div>
+   </section>
+   <section class="box"><h2>Photos</h2><div class="hint">The first photo is the main one on the product card. Drag photos in, or click to choose. JPG or PNG, up to 20 MB each.</div><div id="edPhotos">${photosHTML()}</div></section>
+   <section class="box"><h2>Description</h2>
+     ${fld("Short description",`<textarea data-ef="short" rows="2" placeholder="One or two sentences shown under the price">${v("short")}</textarea>`)}
+     ${fld("Full details",`<textarea data-ef="desc" rows="6" placeholder="Ingredients, how to cook, origin, allergens…">${v("desc")}</textarea>`)}
+   </section>
+   <section class="box"><h2>Stock and visibility</h2>
+     <div class="chks"><label class="chk"><input type="checkbox" data-ef="hidden" data-inv ${e.hidden?"":"checked"}> Show in the shop</label><label class="chk"><input type="checkbox" data-ef="stock" ${e.stock!==false?"checked":""}> In stock</label><label class="chk"><input type="checkbox" data-ef="featured" ${e.featured?"checked":""}> Feature on the homepage</label></div>
+     <div class="three">${fld("Quantity on hand",`<input data-ef="qty" type="number" min="0" value="${e.qty??""}" placeholder="Not tracked">`,"5 or fewer shows “Only 5 left”; 0 shows out of stock")}${fld("Sort priority",`<input data-ef="sort" type="number" value="${e.sort??0}">`,"higher shows first")}${fld("Storage",`<select data-ef="zone">${[["","Automatic from section"],["shelf","Shelf"],["chilled","Chilled"],["frozen","Frozen"]].map(([z,n])=>`<option value="${z}" ${(e.zone||"")===z?"selected":""}>${n}</option>`).join("")}</select>`)}</div>
+   </section>
+   <section class="box"><h2>Labels</h2>
+     <div class="chks">${TAGS.map(([t,n])=>`<label class="chk"><input type="checkbox" data-eftag="${t}" ${e.tags.includes(t)?"checked":""}> ${n}</label>`).join("")}</div>
+     ${fld("Badge on the card",`<input data-ef="badge" value="${v("badge")}" placeholder="e.g. New, Best seller, Made in-house" maxlength="22">`,"optional")}
+   </section>
+  </form>
+  <aside class="side">
+    <div class="box"><h2>Preview</h2><div class="prev" id="edPrev">${cardHTML(pv,true)}</div><div class="hint" id="edState">${previewState(pv)}</div></div>
+    <div class="box" style="gap:10px"><button class="btn btn-p" data-asave>Save product</button>
+      ${!A.isNew&&base&&OV[A.editId]?`<button class="btn btn-o" data-areset>${A.confirm==="reset"?"Click again to undo all changes":"Undo my changes (back to original)"}</button>`:""}
+      ${!A.isNew&&!base?`<button class="btn btn-o" style="color:#c2412d;border-color:#c2412d" data-adel>${A.confirm==="del"?"Click again to delete for good":"Delete product"}</button>`:""}
+      ${base?`<div class="hint">Imported and starter products can't be deleted, but you can hide them from the shop.</div>`:""}
+    </div>
+  </aside></div>`;
+}
+function previewState(p){ const s=[]; if(!shown(p)) s.push(secVisible(p.sec)?"Hidden from the shop.":"This section is hidden, so customers won't see it."); if(p.out) s.push("Shows as out of stock."); if(p.special!=null&&p.special!==""&&!p.was) s.push(+p.special>=+p.regular?"Special price must be lower than the regular price.":"Special has ended."); return s.join(" ")||"Customers see this card."; }
+function photosHTML(){
+  const ph=A.edit.photos||[]; const pv=editPreview();
+  return `<div class="photos">${ph.map((x,i)=>`<div class="phot"><div class="im"><img src="${esc(x.url)}" alt=""></div><div class="bar">${i===0?'<span class="main">Main</span>':`<button type="button" data-phmain="${i}" title="Make main photo">Main</button>`}<span style="display:flex">${i>0?`<button type="button" data-phmove="${i}" data-dir="-1" aria-label="Move left">←</button>`:""}${i<ph.length-1?`<button type="button" data-phmove="${i}" data-dir="1" aria-label="Move right">→</button>`:""}<button type="button" data-phdel="${i}" aria-label="Remove photo" style="color:#c2412d">✕</button></span></div></div>`).join("")}
+   ${!ph.length&&(pv.img||pv.shape)?`<div class="phot"><div class="im">${defaultImg(pv)}</div><div class="bar"><span class="main" style="color:var(--muted)">Current image</span></div></div>`:""}
+   <label class="drop" id="drop">${assets?`<span><b>+ Add photos</b><br>Drop here or click</span><input type="file" id="edFiles" accept="image/*" multiple hidden>`:"Photo uploads need you to be signed in as the owner or an editor."}</label></div>
+   <div id="upMsg" class="hint" style="margin-top:6px"></div>`;
+}
+function collectEdit(){
+  const f=$("#edForm"); if(!f) return A.edit; const e=clone(A.edit);
+  f.querySelectorAll("[data-ef]").forEach(el=>{ const k=el.dataset.ef; if(el.type==="checkbox") e[k]=el.hasAttribute("data-inv")?!el.checked:el.checked; else if(el.type==="number") e[k]=k==="sort"?(num(el.value)||0):num(el.value); else e[k]=el.value.trim(); });
+  e.tags=[...f.querySelectorAll("[data-eftag]")].filter(x=>x.checked).map(x=>x.dataset.eftag);
+  if(e.special===0) e.special=null;
+  return e;
+}
+function updatePreview(){ A.edit=collectEdit(); const pv=editPreview(); const el=$("#edPrev"); if(el) el.innerHTML=cardHTML(pv,true); const st=$("#edState"); if(st) st.textContent=previewState(pv); const wb=$("#wBox"); if(wb) wb.hidden=!A.edit.perKg; }
+async function uploadPhotos(files){
+  if(!assets) return toast("Photo uploads need the owner or an editor to be signed in.");
+  A.edit=collectEdit(); const list=[...files].filter(f=>/^image\//.test(f.type)); if(!list.length) return toast("Choose image files (JPG or PNG).");
+  const msg=$("#upMsg"); let n=0;
+  for(const f of list){
+    if(f.size>20*1024*1024){ toast(`${f.name} is over 20 MB. Choose a smaller photo.`); continue; }
+    if(msg) msg.textContent=`Uploading ${++n} of ${list.length}…`;
+    try{ const a=await assets.upload(f); A.edit.photos.push({url:a.url,id:a.id}); $("#edPhotos").innerHTML=photosHTML(); bindDrop(); updatePreview(); }
+    catch(er){ toast(er&&er.code==="quota_or_state"?"Photo storage is full. Remove unused photos first.":er&&er.code==="unsupported_type"?`${f.name} isn't a supported image type.`:"Upload failed. Try again."); }
+  }
+  const m2=$("#upMsg"); if(m2) m2.textContent=n?`${n} photo${n>1?"s":""} added. Remember to save.`:"";
+}
+function bindDrop(){ const d=$("#drop"); if(!d) return; d.addEventListener("dragover",ev=>{ev.preventDefault();d.classList.add("over");}); d.addEventListener("dragleave",()=>d.classList.remove("over")); d.addEventListener("drop",ev=>{ev.preventDefault();d.classList.remove("over");uploadPhotos(ev.dataTransfer.files);}); }
+function afterAdmin(){ if(A.tab==="products"&&A.edit) bindDrop(); if(A.tab==="products"&&!A.edit&&$("#bkAct")) $("#bkParam").innerHTML=bulkParamHTML($("#bkAct").value); }
+async function saveEdit(){
+  const e=collectEdit();
+  if(!e.name) return toast("Give the product a name.");
+  if(!(e.regular>0)) return toast("Enter a regular price above $0.");
+  if(e.special!=null&&!(e.special<e.regular)) return toast("The special price must be lower than the regular price.");
+  if(!e.sub) e.sub="Other";
+  let doc;
+  if(A.editBase){ doc={}; EDIT_KEYS.forEach(k=>{ const b=k in A.editBase?A.editBase[k]:BASE_DEF[k]; if(JSON.stringify(e[k]??null)!==JSON.stringify(b??null)) doc[k]=e[k]; }); }
+  else { doc=Object.assign({},A.copyArt||{},e,{custom:true}); }
+  const btns=document.querySelectorAll("[data-asave]"); btns.forEach(b=>{b.disabled=true;b.textContent="Saving…";});
+  try{
+    if(A.editBase&&!Object.keys(doc).length){ if(OV[A.editId]) await db.collection("products").doc(A.editId).delete(); delete OV[A.editId]; }
+    else { doc.updatedAt=Date.now(); await db.collection("products").doc(A.editId).set(doc); OV[A.editId]=doc; }
+    const used=new Set(); Object.values(OV).forEach(o=>(o.photos||[]).forEach(x=>used.add(x.id)));
+    for(const id of A.removed) if(id&&!used.has(id)&&assets) assets.delete(id).catch(()=>{});
+    A.removed=[]; A.isNew=false; A.edit=e; rebuild(); toast("Saved. The shop is updated."); renderView();
+  }catch(er){ toast("Couldn't save. Check you're signed in as the owner or an editor."); btns.forEach(b=>{b.disabled=false;b.textContent="Save product";}); }
+}
+
+/* ---------- orders ---------- */
+function ordersAdminHTML(){
+  return `<div class="ahead"><div><h1>Orders</h1><p>New orders appear here as soon as they're placed.</p></div></div><div style="display:grid;gap:10px">${orders.length?orders.map(o=>`<div class="ord"><div class="t"><b class="num">${esc(o.no)} · ${money(o.total||0)}</b><span class="st ${esc(o.status)}">${esc(o.status)}</span></div><div><b>${o.mode==="collect"?"Click & Collect":"Delivery"}</b> · ${esc(o.when)} · <span style="color:var(--muted)">${new Date(o.createdAt).toLocaleString("en-AU",{timeZone:"Australia/Sydney",day:"numeric",month:"short",hour:"numeric",minute:"2-digit"})}</span></div><div>${esc(o.name)} · <span class="num" style="user-select:all">${esc(o.phone)}</span>${o.email?` · <span style="user-select:all">${esc(o.email)}</span>`:""}${o.mode==="delivery"?` · ${esc(o.address)}, ${esc(o.suburb)} ${esc(o.postcode)}`:""}</div><div style="color:var(--ink-2)">${(o.items||[]).map(i=>`${i.qty} × ${esc(i.name)}${i.size?` (${esc(i.size)})`:""}`).join(" · ")}</div><div style="font-size:13px">Unavailable items: <b>${{call:"call first",similar:"swap similar",none:"refund"}[o.subs]||""}</b> · Payment: <b>${esc(o.pay)}</b>${o.promo?` · Promo: <b>${esc(o.promo)}</b>`:""}${o.notes?` · Note: <b>${esc(o.notes)}</b>`:""}</div>${NEXT[o.status]?`<div><button class="btn btn-p" style="padding:8px 14px" data-adv="${esc(o.no)}">${NEXTL[o.status]}</button></div>`:""}</div>`).join(""):`<div class="none">No orders yet.</div>`}</div>`;
+}
+
+/* ---------- sections & homepage ---------- */
+function cfgDraft(){ if(!A.cfg) A.cfg=clone(CFG); return A.cfg; }
+const LINKS=()=>[["home","Home"],["specials","Specials"],["nepali","Nepali favourites"],...CFG.sections.map(s=>[s.id,s.name])];
+function sectionsHTML(){
+  const c=cfgDraft();
+  return `<div class="ahead"><div><h1>Sections and homepage</h1><p>Rename sections, show or hide them, change their order, manage categories and edit the homepage banners.</p></div><button class="btn btn-p" data-cfgsave>Save changes</button></div>
+  <div class="costack">
+  <section class="box"><h2>Shop sections</h2><div class="list-ed">${c.sections.map((s,i)=>{ const n=CATALOG.filter(p=>p.sec===s.id).length; return `<div class="itm"><div class="row2">${fld("Name",`<input data-scfg="sections.${i}.name" value="${esc(s.name)}">`)}<label class="chk" style="padding-bottom:10px"><input type="checkbox" data-scfg="sections.${i}.visible" ${s.visible?"checked":""}> Show in shop</label><span style="padding-bottom:10px;display:flex;gap:4px"><button type="button" class="arr" data-secmove="${i}" data-dir="-1" aria-label="Move up" ${i?"":"disabled"}>↑</button><button type="button" class="arr" data-secmove="${i}" data-dir="1" aria-label="Move down" ${i<c.sections.length-1?"":"disabled"}>↓</button></span></div>${fld("Description",`<input data-scfg="sections.${i}.desc" value="${esc(s.desc)}">`)}<details><summary class="hint" style="cursor:pointer">${n.toLocaleString()} products · manage categories</summary>${catTableHTML(s.id)}</details></div>`; }).join("")}</div></section>
+  <section class="box"><h2>Homepage banners</h2><div class="hint">Banners rotate at the top of the homepage. Product codes are shown in the Products list, for example p48.</div><div class="list-ed">${c.hero.map((h,i)=>`<div class="itm"><div style="display:flex;justify-content:space-between"><b>Banner ${i+1}</b><span style="display:flex;gap:4px"><button type="button" class="arr" data-heromove="${i}" data-dir="-1" ${i?"":"disabled"} aria-label="Move up">↑</button><button type="button" class="arr" data-heromove="${i}" data-dir="1" ${i<c.hero.length-1?"":"disabled"} aria-label="Move down">↓</button><button type="button" class="lnk" data-herodel="${i}" style="color:#c2412d">Remove</button></span></div>
+    ${fld("Headline",`<textarea data-scfg="hero.${i}.title" rows="2">${esc(h.title)}</textarea>`,"press Enter for a new line")}${fld("Text",`<input data-scfg="hero.${i}.text" value="${esc(h.text)}">`)}
+    <div class="row2">${fld("Button label",`<input data-scfg="hero.${i}.cta" value="${esc(h.cta)}">`)}${fld("Button goes to",`<select data-scfg="hero.${i}.link">${LINKS().map(([v,n])=>`<option value="${v}" ${h.link===v?"selected":""}>${esc(n)}</option>`).join("")}</select>`)}${fld("Price tag (optional)",`<input data-scfg="hero.${i}.badge" value="${esc(h.badge)}">`)}</div>
+    <div class="row2">${fld("Background",`<input type="color" data-scfg="hero.${i}.bg" value="${esc(h.bg||"#0f766e")}" style="height:42px;padding:2px">`)}${fld("Text colour",`<select data-scfg="hero.${i}.fg"><option value="light" ${h.fg!=="dark"?"selected":""}>White</option><option value="dark" ${h.fg==="dark"?"selected":""}>Black</option></select>`)}${fld("Products pictured",`<input data-scfg="hero.${i}.products" value="${esc(h.products)}" placeholder="p25, p48">`,"up to 3 codes")}</div></div>`).join("")}</div>
+    <div><button type="button" class="btn btn-o" data-heroadd>+ Add banner</button></div></section>
+  </div><div style="margin-top:14px"><button class="btn btn-p" data-cfgsave>Save changes</button></div>`;
+}
+function catTableHTML(secId){
+  const subs={}; CATALOG.filter(p=>p.sec===secId).forEach(p=>subs[p.sub]=(subs[p.sub]||0)+1);
+  const names=Object.keys(subs).sort(); if(!names.length) return `<p class="hint">No products in this section yet.</p>`;
+  return `<div class="atab" style="margin-top:8px"><table style="min-width:560px"><thead><tr><th>Category</th><th>Products</th><th>Rename</th><th>Move all to section</th></tr></thead><tbody>${names.map(n=>`<tr><td>${esc(n)}</td><td class="num">${subs[n]}</td><td><span style="display:flex;gap:6px"><input data-catname="${esc(n)}" placeholder="New name" style="border:1px solid var(--line-2);border-radius:6px;padding:6px;width:150px"><button type="button" class="btn btn-o" style="padding:5px 10px" data-catren="${esc(n)}" data-csec="${secId}">Rename</button></span></td><td><span style="display:flex;gap:6px"><select data-catsec="${esc(n)}" style="border:1px solid var(--line-2);border-radius:6px;padding:6px">${CFG.sections.map(s=>`<option value="${s.id}" ${s.id===secId?"selected":""}>${esc(s.name)}</option>`).join("")}</select><button type="button" class="btn btn-o" style="padding:5px 10px" data-catmove="${esc(n)}" data-csec="${secId}">Move</button></span></td></tr>`).join("")}</tbody></table></div>`;
+}
+function readCfgInputs(){
+  const c=cfgDraft();
+  document.querySelectorAll("[data-scfg]").forEach(el=>{ const path=el.dataset.scfg.split("."); let o=c; for(let i=0;i<path.length-1;i++) o=o[path[i]]; const k=path[path.length-1]; let v=el.type==="checkbox"?el.checked:el.value; if(el.dataset.type==="num") v=num(v); if(el.dataset.type==="int") v=parseInt(v,10); o[k]=v; });
+  return c;
+}
+async function saveCfg(){
+  const c=readCfgInputs();
+  if((c.promos||[]).some(p=>p.code&&!(+p.pct>0&&+p.pct<90))) return toast("Promo % off must be between 1 and 89.");
+  if(+c.cutoffHour<+c.openHour) return toast("The delivery cut-off can't be before opening time.");
+  c.promos=(c.promos||[]).filter(p=>p.code).map(p=>Object.assign(p,{code:String(p.code).trim().toUpperCase(),pct:+p.pct}));
+  try{ await db.doc("settings/store").set(c); CFG=mergeCfg(c); A.cfg=null; rebuild(); toast("Saved. The shop is updated."); renderView(); }
+  catch(e){ toast("Couldn't save. Check you're signed in as the owner or an editor."); }
+}
+
+/* ---------- store settings ---------- */
+function settingsHTML(){
+  const c=cfgDraft(), hours=k=>`<select data-scfg="${k}" data-type="int">${Array.from({length:24},(_,h)=>`<option value="${h}" ${+c[k]===h?"selected":""}>${fmtH(h)}</option>`).join("")}</select>`;
+  const t=(k,ph="")=>`<input data-scfg="${k}" value="${esc(c[k]??"")}" placeholder="${esc(ph)}">`;
+  const n=k=>`<input data-scfg="${k}" data-type="num" type="number" step="0.01" min="0" value="${c[k]??""}">`;
+  return `<div class="ahead"><div><h1>Store settings</h1><p>Your details, opening hours, delivery rules and promo codes.</p></div><button class="btn btn-p" data-cfgsave>Save changes</button></div>
+  <div class="costack">
+   <section class="box"><h2>Store details</h2>
+     <div class="two">${fld("Logo text",t("logoText"),"an & shows in gold")}${fld("Line under the logo",t("tagline"))}</div>
+     ${fld("Store name",t("storeName"))}${fld("About the store",`<textarea data-scfg="about" rows="2">${esc(c.about)}</textarea>`,"shown in the footer")}
+     <div class="three">${fld("Phone / WhatsApp",t("phone"))}${fld("Email",t("email"))}${fld("Address",t("address"))}</div>
+     ${fld("Announcement bar",t("announcement"),"the strip at the very top of the page")}
+   </section>
+   <section class="box"><h2>Hours and delivery</h2>
+     <div class="three">${fld("Opens",hours("openHour"))}${fld("Closes",hours("closeHour"))}${fld("Same-day delivery cut-off",hours("cutoffHour"))}</div>
+     <div class="three">${fld("Late-run orders until",hours("lateRunUntil"),"after the cut-off")}${fld("Delivery fee ($)",n("deliveryFee"))}${fld("Free delivery over ($)",n("freeOver"))}</div>
+     <div class="two">${fld("Minimum delivery order ($)",n("minDelivery"))}<div></div></div>
+     ${fld("Delivery postcodes",`<textarea data-scfg="postcodes" rows="2" placeholder="e.g. 2077, 2076, 2119">${esc(c.postcodes)}</textarea>`,"separate with commas. Leave empty to accept any NSW postcode")}
+   </section>
+   <section class="box"><h2>Promo codes</h2><div class="list-ed">${(c.promos||[]).map((p,i)=>`<div class="itm"><div class="row2">${fld("Code",`<input data-scfg="promos.${i}.code" value="${esc(p.code)}" style="text-transform:uppercase">`)}${fld("% off",`<input data-scfg="promos.${i}.pct" data-type="num" type="number" min="1" max="89" value="${p.pct}">`)}<label class="chk" style="padding-bottom:10px"><input type="checkbox" data-scfg="promos.${i}.firstOnly" ${p.firstOnly?"checked":""}> First order only</label><label class="chk" style="padding-bottom:10px"><input type="checkbox" data-scfg="promos.${i}.active" ${p.active?"checked":""}> Active</label><button type="button" class="lnk" data-promodel="${i}" style="color:#c2412d;padding-bottom:10px">Remove</button></div></div>`).join("")||'<p class="hint">No promo codes yet.</p>'}</div><div><button type="button" class="btn btn-o" data-promoadd>+ Add promo code</button></div></section>
+  </div><div style="margin-top:14px"><button class="btn btn-p" data-cfgsave>Save changes</button></div>`;
+}
+
+/* ---------- import & export ---------- */
+function importHTML(){
+  const m=IMPORT_META;
+  return `<div class="ahead"><div><h1>Import and export</h1><p>Bring in a whole catalogue, or edit prices and details for many products in a spreadsheet.</p></div></div>
+  <div class="costack">
+   ${HOSTED?"":`<section class="box"><h2>Catalogue file</h2>
+     ${m?`<div class="msg ok">Imported catalogue: <b>${(+m.count||0).toLocaleString()} products</b> with ${(m.atlasIds||[]).length} photo sheets, from ${esc(m.source||"a file")} on ${esc(new Date(m.importedAt).toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"}))}. Your edits to these products are kept separately and survive a re-import.</div>`:`<div class="msg info">No catalogue imported yet. Only the starter range of ${BUILTIN.length} products is in the shop.</div>`}
+     <p style="margin:0;font-size:14px">Choose the catalogue file (a <b>.json</b> file prepared for this shop). Import uploads the product photos and adds every product. It takes a minute or two; keep this page open.</p>
+     <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-p" data-impjson ${A.busy?"disabled":""}>Import catalogue file</button>${m?`<button class="btn btn-o" data-impremove ${A.busy?"disabled":""}>${A.confirm==="impremove"?"Click again to remove all imported products":"Remove imported catalogue"}</button>`:""}</div>
+   </section>`}
+     <div id="impProg">${A.busy?progHTML(A.busy):""}</div>
+   <section class="box"><h2>Spreadsheet (CSV)</h2>
+     <p style="margin:0;font-size:14px">Download every product as a CSV, change prices, specials, stock or descriptions in Excel or Google Sheets, then upload it back. Rows without a code are added as new products.</p>
+     <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-o" data-csvout ${downloads?"":"disabled"}>Download products CSV</button><button class="btn btn-o" data-csvin ${A.busy?"disabled":""}>Upload CSV</button></div>
+     ${downloads?"":`<div class="hint">Downloading needs this page to be opened by the owner.</div>`}
+     <div class="hint">Columns: ${CSV_COLS.join(", ")}. Yes/no columns accept yes or no. Leave a cell empty to keep the current value; type NONE in special_price to end a special.</div>
+   </section>
+  </div>`;
+}
+function progHTML(b){ return `<div style="display:grid;gap:6px;margin-top:8px"><div class="prog"><i style="width:${b.total?Math.round(b.done/b.total*100):0}%"></i></div><div class="hint num">${esc(b.stage)} · ${b.done} of ${b.total}</div></div>`; }
+function setBusy(b){ A.busy=b; const el=$("#impProg"); if(el) el.innerHTML=b?progHTML(b):""; }
+function dataURLtoBlob(u){ const [h,d]=u.split(","); const mime=(h.match(/data:([^;]+)/)||[])[1]||"image/jpeg"; const bin=atob(d); const a=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) a[i]=bin.charCodeAt(i); return new Blob([a],{type:mime}); }
+async function upRetry(blob,opt){ for(let t=0;t<4;t++){ try{ return await assets.upload(blob,opt); }catch(e){ if(e&&["too_large","unsupported_type","quota_or_state","not_uploader"].includes(e.code)) throw e; await new Promise(r=>setTimeout(r,1500*(t+1))); } } throw {code:"failed",message:"Upload failed"}; }
+async function runImport(file){
+  if(!assets||!db) return toast("Importing needs the owner to be signed in.");
+  let data; setBusy({stage:"Reading the file",done:0,total:1});
+  try{ data=JSON.parse(await file.text()); }catch(e){ setBusy(null); return toast("That file isn't a catalogue file. Choose the .json catalogue file."); }
+  if(!data||!Array.isArray(data.products)||!Array.isArray(data.atlases)){ setBusy(null); return toast("That file doesn't contain a product catalogue."); }
+  const cols=data.cols||10, maxIdx={}; data.products.forEach(p=>{ if(p.img) maxIdx[p.img[0]]=Math.max(maxIdx[p.img[0]]||0,p.img[1]); });
+  const total=data.atlases.length+1, atl=[]; let done=0;
+  try{
+    for(let i=0;i<data.atlases.length;i++){
+      setBusy({stage:"Uploading photo sheets",done,total});
+      const r=await upRetry(dataURLtoBlob(data.atlases[i]));
+      atl.push({url:r.url,id:r.id,rows:Math.floor((maxIdx[i]||0)/cols)+1}); done++;
+    }
+    setBusy({stage:"Saving the product list",done,total});
+    const prods=data.products.map(p=>{ const o={id:p.id,name:p.name,sec:p.sec,sub:p.sub,price:p.price,was:p.was,img:p.img||null}; if(p.sku) o.sku=p.sku; if(p.short) o.short=p.short; if(p.desc) o.desc=p.desc; if(p.stock===false) o.stock=false; return o; });
+    const json=JSON.stringify({v:1,cols,atlases:atl.map(a=>({url:a.url,rows:a.rows})),products:prods});
+    const r=await upRetry(new Blob([json],{type:"application/json"}),{type:"application/json"});
+    const old=IMPORT_META;
+    await db.doc("settings/catalog").set({url:r.url,id:r.id,atlasIds:atl.map(a=>a.id),count:prods.length,source:data.source||file.name,importedAt:new Date().toISOString()});
+    if(old){ [old.id,...(old.atlasIds||[])].forEach(id=>id&&assets.delete(id).catch(()=>{})); }
+    setBusy(null); toast(`Imported ${prods.length.toLocaleString()} products.`); renderView();
+  }catch(e){ setBusy(null); atl.forEach(a=>assets.delete(a.id).catch(()=>{})); toast(e&&e.code==="quota_or_state"?"Photo storage is full, so the import stopped. Nothing was changed.":"The import stopped part-way. Nothing was changed. Try again."); renderView(); }
+}
+async function removeImport(){
+  const m=IMPORT_META; if(!m) return;
+  try{ await db.doc("settings/catalog").delete(); [m.id,...(m.atlasIds||[])].forEach(id=>id&&assets&&assets.delete(id).catch(()=>{})); IMPORTED=[]; ATL=[]; loadedUrl=null; IMPORT_META=null; rebuild(); toast("Imported catalogue removed."); renderView(); }
+  catch(e){ toast("Couldn't remove it. Try again."); }
+}
+const CSV_COLS=["code","name","brand","size","sku","section","category","regular_price","special_price","special_ends","in_stock","quantity","visible","featured","tags","badge","short_description"];
+const csvCell=v=>{ const s=String(v??""); return /[",\n\r]/.test(s)?`"${s.replace(/"/g,'""')}"`:s; };
+function toCSV(){ const yn=b=>b?"yes":"no"; const rows=[CSV_COLS.join(",")]; CATALOG.forEach(p=>rows.push([p.id,p.name,p.brand,p.size,p.sku,p.sec,p.sub,p.regular,p.special??"",p.saleEnds,yn(p.stock!==false),p.qty??"",yn(!p.hidden),yn(p.featured),p.tags.join(" "),p.badge,p.short].map(csvCell).join(","))); return rows.join("\r\n"); }
+function parseCSV(t){ const rows=[]; let row=[],cell="",q=false; for(let i=0;i<t.length;i++){ const c=t[i]; if(q){ if(c==='"'){ if(t[i+1]==='"'){cell+='"';i++;} else q=false; } else cell+=c; } else if(c==='"') q=true; else if(c===","){ row.push(cell); cell=""; } else if(c==="\n"||c==="\r"){ if(c==="\r"&&t[i+1]==="\n") i++; row.push(cell); rows.push(row); row=[]; cell=""; } else cell+=c; } if(cell!==""||row.length){ row.push(cell); rows.push(row); } return rows.filter(r=>r.some(x=>x.trim()!=="")); }
+async function importCSV(file){
+  let rows; try{ rows=parseCSV((await file.text()).replace(/^﻿/,"")); }catch(e){ return toast("Couldn't read that file."); }
+  if(rows.length<2) return toast("The CSV has no product rows.");
+  const H=rows[0].map(h=>h.trim().toLowerCase()), ix=k=>H.indexOf(k);
+  if(ix("name")<0&&ix("code")<0) return toast("The CSV needs a code or name column. Download the products CSV to see the layout.");
+  const yn=v=>/^(y|yes|true|1)$/i.test(v.trim());
+  const secOf=v=>{ v=v.trim().toLowerCase(); const s=CFG.sections.find(s=>s.id===v||s.name.toLowerCase()===v); return s?s.id:null; };
+  const jobs=[]; let bad=0;
+  rows.slice(1).forEach(r=>{
+    const g=k=>{ const i=ix(k); return i<0?"":(r[i]||"").trim(); };
+    const code=g("code"), p=code?CMAP[code]:null; const patch={};
+    if(g("name")) patch.name=g("name"); if(g("brand")) patch.brand=g("brand"); if(g("size")) patch.size=g("size"); if(g("sku")) patch.sku=g("sku");
+    if(g("section")){ const s=secOf(g("section")); if(s) patch.sec=s; }
+    if(g("category")) patch.sub=g("category");
+    if(g("regular_price")){ const n=num(g("regular_price").replace(/[$,]/g,"")); if(n>0) patch.regular=n; }
+    if(g("special_price")){ if(/^none$/i.test(g("special_price"))){ patch.special=null; patch.saleEnds=""; } else { const n=num(g("special_price").replace(/[$,]/g,"")); if(n>0) patch.special=n; } }
+    if(g("special_ends")&&/^\d{4}-\d{2}-\d{2}$/.test(g("special_ends"))) patch.saleEnds=g("special_ends");
+    if(g("in_stock")) patch.stock=yn(g("in_stock")); if(g("quantity")!=="") { const n=num(g("quantity")); if(n!=null) patch.qty=n; }
+    if(g("visible")) patch.hidden=!yn(g("visible")); if(g("featured")) patch.featured=yn(g("featured"));
+    if(g("tags")) patch.tags=g("tags").toLowerCase().split(/[\s,;]+/).filter(t=>[NE,HAL,VEG].includes(t));
+    if(g("badge")) patch.badge=g("badge"); if(g("short_description")) patch.short=g("short_description");
+    if(p){ const diff={}; Object.keys(patch).forEach(k=>{ if(JSON.stringify(patch[k]??null)!==JSON.stringify(p[k]??null)) diff[k]=patch[k]; }); if(Object.keys(diff).length) jobs.push([code,diff]); }
+    else if(!code&&patch.name&&patch.regular>0){ const id="c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6); jobs.push([id,Object.assign({sec:"dry",sub:"Other",tags:[],photos:[]},patch,{custom:true})]); }
+    else bad++;
+  });
+  if(!jobs.length) return toast(bad?`No changes found. ${bad} row${bad>1?"s were":" was"} skipped.`:"No changes found.");
+  setBusy({stage:"Updating products",done:0,total:jobs.length});
+  await pool(jobs,([id,patch])=>writeOv(id,patch),4,(d,t)=>setBusy({stage:"Updating products",done:d,total:t}));
+  setBusy(null); rebuild(); toast(`Updated ${jobs.length} product${jobs.length>1?"s":""}.${bad?` ${bad} row${bad>1?"s":""} skipped (no code match, or a new row without name and price).`:""}`); renderView();
+}
+
+/* =====================================================================
+   LIVE DATA
+   ===================================================================== */
+function loadImport(){
+  const m=IMPORT_META;
+  if(!m||!m.url){ if(loadedUrl){ IMPORTED=[]; ATL=[]; loadedUrl=null; rebuild(); softRender(); } return; }
+  if(m.url===loadedUrl) return;
+  IMPORT_LOADING=true; const lb=$("#loadbar"); lb.textContent="Loading the full product range…"; lb.hidden=false;
+  fetch(m.url).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(j=>{
+    ATL_COLS=j.cols||10; ATL=j.atlases||[];
+    IMPORTED=(j.products||[]).map(x=>normBase(Object.assign({src:"import",tags:/nepal/i.test(x.sub)?[NE]:[]},x)));
+    loadedUrl=m.url; IMPORT_LOADING=false; lb.hidden=true; rebuild(); softRender();
+  }).catch(()=>{ IMPORT_LOADING=false; lb.textContent="The full range didn't load. Refresh the page to try again."; });
+}
+async function initCloud(){
+  try{
+    const RT=window.LEPP_RT;
+    if(!RT||!RT.use) return;
+    db=await RT.use("db"); if(!db) return;
+    db.doc("settings/store").onSnapshot(s=>{ CFG=mergeCfg(s.exists?s.data():null); rebuild(); softRender(); },()=>{});
+    db.collection("products").onSnapshot(snap=>{ const o={}; snap.docs.forEach(d=>o[d.id]=d.data()); OV=o; rebuild(); softRender(); },()=>{});
+    db.doc("settings/catalog").onSnapshot(s=>{ IMPORT_META=s.exists?s.data():null; loadImport(); if(route()==="admin"&&A.tab==="import"&&!A.busy) renderView(); },()=>{});
+    const user=await RT.use("user");
+    if(user&&await user.canEdit()){
+      isStaff=true; $("#adminLink").hidden=false;
+      assets=await RT.use("assets"); downloads=await RT.use("downloads");
+      let first=true;
+      db.collection("orders").orderBy("createdAt","desc").limit(200).onSnapshot(snap=>{ const before=orders.length; orders=snap.docs.map(d=>d.data()); if(!first&&orders.length>before) toast("New order received"); first=false; if(route()==="admin"&&A.tab==="orders") renderView(); },()=>{});
+      if(route()==="admin") renderView();
+    }
+  }catch(e){ console.warn(e); }
+}
+
+/* =====================================================================
+   EVENTS
+   ===================================================================== */
+let filePurpose=null;
+function pickFile(purpose,accept,multiple){ filePurpose=purpose; const f=$("#filePick"); f.value=""; f.accept=accept; f.multiple=!!multiple; f.click(); }
+document.addEventListener("click",async e=>{
+  if(!e.target.closest("#mega")&&!e.target.closest("#browseBtn")&&!$("#mega").hidden){ $("#mega").hidden=true; $("#browseBtn").setAttribute("aria-expanded","false"); }
+  const b=e.target.closest("button"); if(!b) return; const d=b.dataset;
+  if(d.close!==undefined){ closeAll(); return; }
+  if(d.signout!==undefined){ try{ await window.LEPP_RT.auth.signOut(); }catch(er){} location.hash="home"; location.reload(); return; }
+  if(d.route){ closeAll(); if(d.route==="admin"){ A.edit=null; } go(d.route); return; }
+  if(d.sec){ $("#mega").hidden=true; $("#browseBtn").setAttribute("aria-expanded","false"); if(route()===d.sec){ S.fsub.clear(); if(d.sub) S.fsub.add(d.sub); renderView(); } else { pendingSub=d.sub||null; location.hash=d.sec; } return; }
+  if(d.open){ openProduct(d.open); return; }
+  if(d.gal!==undefined){ galIdx=+d.gal; openProduct(d.pid,true); return; }
+  if(d.add){ setQty(d.add,1); const p=prod(d.add.split("|")[0]); toast(`Added ${p.name}`); if(modalIsProduct()) openProduct(p.id,true); return; }
+  if(d.inc||d.dec){ const k=d.inc||d.dec; setQty(k,(S.cart[k]||0)+(d.inc?1:-1)); if(modalIsProduct()) openProduct(k.split("|")[0],true); return; }
+  if(d.more!==undefined){ S.limit+=48; const y=window.scrollY; renderView(); window.scrollTo(0,y); return; }
+  if(d.scroll){ const el=document.getElementById(d.scroll); el.scrollBy({left:+d.dir*el.clientWidth*.8,behavior:"smooth"}); return; }
+  if(d.slide!==undefined){ setSlide(+d.slide); startCarousel(); return; }
+  if(d.collect!==undefined){ S.ful.mode="collect"; S.ful.slot=null; saveFul(); ensureSlot(); renderNav(); updateCartBits(); toast("Click & Collect selected: ready in 5 minutes"); return; }
+  if(d.ful!==undefined){ closeAll(); openFul(); return; }
+  if(d.fmode){ S.ful.mode=d.fmode; S.ful.slot=null; saveFul(); ensureSlot(); pickDay=null; const ab=$("#addrBlock"); if(ab) ab.hidden=d.fmode!=="delivery"; rerenderPicker(); return; }
+  if(d.day!==undefined){ pickDay=+d.day; rerenderPicker(); return; }
+  if(d.slot){ S.ful.slot={v:d.slot,date:d.sdate,day:d.sday,l:d.sl}; saveFul(); pickDay=null; rerenderPicker(); return; }
+  if(d.pccheck!==undefined){ const pc=$("#pcIn").value.trim(), r=checkPostcode(pc); $("#pcMsg").innerHTML=`<div class="msg ${r.ok?"ok":"bad"}" style="margin-top:6px">${r.msg}</div>`; if(r.ok){ S.ful.pc=pc; saveFul(); renderNav(); const fp=$("#fPc"); if(fp) fp.value=pc; } return; }
+  if(d.fsave!==undefined){ const pcEl=$("#pcIn"); if(pcEl&&pcEl.value.trim()){ const r=checkPostcode(pcEl.value.trim()); if(!r.ok){ $("#pcMsg").innerHTML=`<div class="msg bad" style="margin-top:6px">${r.msg}</div>`; return; } S.ful.pc=pcEl.value.trim(); saveFul(); } closeAll(); renderNav(); updateCartBits(); toast(S.ful.mode==="delivery"?"Delivery time saved":"Pick-up time saved"); return; }
+  if(d.fopen!==undefined){ $("#filters").classList.add("open"); $("#scrim").classList.add("on"); return; }
+  if(d.fclose!==undefined){ closeAll(); return; }
+  if(d.fclear!==undefined){ S.fsub.clear(); S.ftag.clear(); S.fprice=""; renderView(); return; }
+  if(d.unf){ const i=d.unf.indexOf(":"), k=d.unf.slice(0,i), v=d.unf.slice(i+1); if(k==="sub") S.fsub.delete(v); if(k==="tag") S.ftag.delete(v); if(k==="price") S.fprice=""; renderView(); return; }
+  if(d.promo!==undefined){ const code=$("#promoIn").value.trim().toUpperCase(), m=$("#promoMsg"); const pr=(CFG.promos||[]).find(p=>p.active&&String(p.code).toUpperCase()===code);
+    if(pr&&!(pr.firstOnly&&ls.get("rv2_promo_used",false))){ S.promo={code:pr.code,pct:+pr.pct,firstOnly:!!pr.firstOnly}; $("#sumTots").innerHTML=totsHTML(totals()); m.innerHTML=`<div class="msg ok">${+pr.pct}% off applied.</div>`; b.textContent="Applied"; updateCartBits(); }
+    else m.innerHTML=`<div class="msg bad">${!code?"Enter a promo code.":pr?"This code is for your first order only.":"That code isn't valid. Check the spelling and try again."}</div>`; return; }
+  if(d.reorder!==undefined){ const o=ls.get("rv2_orders",[])[+d.reorder]; if(o){ o.items.forEach(i=>{ const p=prod(i.key.split("|")[0]); if(p&&shown(p)&&!p.out) S.cart[i.key]=(S.cart[i.key]||0)+i.qty; }); saveCart(); updateCartBits(); openCart(); } return; }
+  /* admin */
+  if(d.atab){ if(A.edit&&d.atab==="products"){ A.edit=null; } A.tab=d.atab; A.cfg=null; A.confirm=null; if(d.atab!=="products") A.edit=null; renderView(); window.scrollTo(0,0); return; }
+  if(d.aedit){ startEdit(d.aedit); return; }
+  if(d.anew!==undefined){ newProduct(); return; }
+  if(d.adup!==undefined){ newProduct(A.editId); toast("Copy created. Change it, then save."); return; }
+  if(d.aback!==undefined||d.acancel!==undefined){ A.edit=null; A.removed=[]; renderView(); return; }
+  if(d.asave!==undefined){ saveEdit(); return; }
+  if(d.areset!==undefined){ if(A.confirm!=="reset"){ A.confirm="reset"; A.edit=collectEdit(); renderView(); return; } A.confirm=null; try{ await db.collection("products").doc(A.editId).delete(); delete OV[A.editId]; rebuild(); toast("Changes undone."); startEdit(A.editId); }catch(er){ toast("Couldn't undo. Try again."); } return; }
+  if(d.adel!==undefined){ if(A.confirm!=="del"){ A.confirm="del"; A.edit=collectEdit(); renderView(); return; } A.confirm=null; try{ const ph=(OV[A.editId]||{}).photos||[]; await db.collection("products").doc(A.editId).delete(); delete OV[A.editId]; ph.forEach(x=>x.id&&assets&&assets.delete(x.id).catch(()=>{})); rebuild(); A.edit=null; toast("Product deleted."); renderView(); }catch(er){ toast("Couldn't delete. Try again."); } return; }
+  if(d.phmain!==undefined){ A.edit=collectEdit(); const ph=A.edit.photos, [x]=ph.splice(+d.phmain,1); ph.unshift(x); $("#edPhotos").innerHTML=photosHTML(); bindDrop(); updatePreview(); return; }
+  if(d.phmove!==undefined){ A.edit=collectEdit(); const ph=A.edit.photos, i=+d.phmove, j=i+(+d.dir); [ph[i],ph[j]]=[ph[j],ph[i]]; $("#edPhotos").innerHTML=photosHTML(); bindDrop(); updatePreview(); return; }
+  if(d.phdel!==undefined){ A.edit=collectEdit(); const [x]=A.edit.photos.splice(+d.phdel,1); if(x&&x.id) A.removed.push(x.id); $("#edPhotos").innerHTML=photosHTML(); bindDrop(); updatePreview(); toast("Photo removed. Save to keep this change."); return; }
+  if(d.aselmatch!==undefined){ adminFiltered().forEach(p=>A.sel.add(p.id)); renderView(); return; }
+  if(d.apage){ A.page+=+d.apage; renderView(); window.scrollTo(0,0); return; }
+  if(d.bkgo!==undefined){ bulkApply(); return; }
+  if(d.bkclear!==undefined){ A.sel.clear(); renderView(); return; }
+  if(d.adv){ const o=orders.find(x=>x.no===d.adv); if(o&&db){ b.disabled=true; db.collection("orders").doc(o.no).update({status:NEXT[o.status]}).catch(()=>{ toast("Couldn't update that order. Try again."); b.disabled=false; }); } return; }
+  if(d.cfgsave!==undefined){ saveCfg(); return; }
+  if(d.secmove!==undefined){ const c=readCfgInputs(), i=+d.secmove, j=i+(+d.dir); [c.sections[i],c.sections[j]]=[c.sections[j],c.sections[i]]; renderView(); return; }
+  if(d.heromove!==undefined){ const c=readCfgInputs(), i=+d.heromove, j=i+(+d.dir); [c.hero[i],c.hero[j]]=[c.hero[j],c.hero[i]]; renderView(); return; }
+  if(d.herodel!==undefined){ const c=readCfgInputs(); c.hero.splice(+d.herodel,1); renderView(); return; }
+  if(d.heroadd!==undefined){ const c=readCfgInputs(); c.hero.push({title:"New banner",text:"",cta:"Shop now",link:"specials",bg:"#0f766e",fg:"light",badge:"",products:""}); renderView(); return; }
+  if(d.promodel!==undefined){ const c=readCfgInputs(); c.promos.splice(+d.promodel,1); renderView(); return; }
+  if(d.promoadd!==undefined){ const c=readCfgInputs(); c.promos.push({code:"",pct:10,firstOnly:false,active:true}); renderView(); return; }
+  if(d.catren!==undefined){ const inp=document.querySelector(`[data-catname="${CSS.escape(d.catren)}"]`), nn=inp?inp.value.trim():""; if(!nn) return toast("Type the new category name."); const ids=CATALOG.filter(p=>p.sec===d.csec&&p.sub===d.catren).map(p=>p.id); readCfgInputs(); toast(`Renaming ${ids.length} products…`); await pool(ids,id=>writeOv(id,{sub:nn}),4); rebuild(); toast(`Renamed to ${nn}.`); renderView(); return; }
+  if(d.catmove!==undefined){ const sel=document.querySelector(`[data-catsec="${CSS.escape(d.catmove)}"]`), to=sel?sel.value:""; if(!to||to===d.csec) return toast("Choose a different section."); const ids=CATALOG.filter(p=>p.sec===d.csec&&p.sub===d.catmove).map(p=>p.id); readCfgInputs(); toast(`Moving ${ids.length} products…`); await pool(ids,id=>writeOv(id,{sec:to}),4); rebuild(); toast(`Moved to ${secName(to)}.`); renderView(); return; }
+  if(d.impjson!==undefined){ pickFile("json",".json,application/json"); return; }
+  if(d.csvin!==undefined){ pickFile("csv",".csv,text/csv"); return; }
+  if(d.csvout!==undefined){ if(!downloads) return; try{ await downloads.save({filename:"leppington-products.csv",data:"﻿"+toCSV()}); }catch(er){ if(er&&er.code!=="declined") toast("Couldn't download the file."); } return; }
+  if(d.impremove!==undefined){ if(A.confirm!=="impremove"){ A.confirm="impremove"; renderView(); return; } A.confirm=null; removeImport(); return; }
+});
+document.addEventListener("change",async e=>{
+  const t=e.target, d=t.dataset;
+  if(t.name==="pay"){ syncPay(); return; }
+  if(t.id==="filePick"){ const f=t.files&&t.files[0]; if(!f) return; if(filePurpose==="json") runImport(f); else if(filePurpose==="csv") importCSV(f); return; }
+  if(t.id==="edFiles"){ uploadPhotos(t.files); return; }
+  if(d.w){ ls.set("rv3_w_"+d.w,t.value); refreshCards(d.w); if(modalIsProduct()) openProduct(d.w,true); return; }
+  if(t.id==="sort"){ S.sort=t.value; S.limit=48; renderView(); return; }
+  if(d.fsub!==undefined){ t.checked?S.fsub.add(d.fsub):S.fsub.delete(d.fsub); keepFilters(); return; }
+  if(d.ftag!==undefined){ t.checked?S.ftag.add(d.ftag):S.ftag.delete(d.ftag); keepFilters(); return; }
+  if(d.fprice!==undefined){ S.fprice=d.fprice; keepFilters(); return; }
+  if(d.asel!==undefined){ t.checked?A.sel.add(d.asel):A.sel.delete(d.asel); renderView(); return; }
+  if(d.aselall!==undefined){ const L=adminFiltered().slice(A.page*A.per,(A.page+1)*A.per); L.forEach(p=>t.checked?A.sel.add(p.id):A.sel.delete(p.id)); renderView(); return; }
+  if(t.id==="asec"){ A.sec=t.value; A.page=0; renderView(); return; }
+  if(t.id==="ast"){ A.status=t.value; A.page=0; renderView(); return; }
+  if(t.id==="asort"){ A.sort=t.value; A.page=0; renderView(); return; }
+  if(t.id==="bkAct"){ $("#bkParam").innerHTML=bulkParamHTML(t.value); A.confirm=null; return; }
+  if(t.closest&&t.closest("#edForm")){ if(d.ef==="sec"){ A.edit=collectEdit(); const dl=$("#subList"); if(dl) dl.innerHTML=[...new Set(CATALOG.filter(p=>p.sec===A.edit.sec).map(p=>p.sub))].sort().map(s=>`<option value="${esc(s)}">`).join(""); } updatePreview(); return; }
+});
+document.addEventListener("input",e=>{
+  const t=e.target;
+  if(t.closest&&t.closest("#edForm")){ if(t.id==="edPct"){ const pct=num(t.value), reg=num(($("[data-ef='regular']")||{}).value); const sp=$("[data-ef='special']"); if(sp&&pct>0&&pct<90&&reg>0) sp.value=r2(reg*(1-pct/100)); } updatePreview(); return; }
+  if(t.id==="aq"){ clearTimeout(t._t); t._t=setTimeout(()=>{ A.q=t.value; A.page=0; const pos=t.selectionStart; renderView(); const n=$("#aq"); if(n){ n.focus(); try{n.setSelectionRange(pos,pos);}catch(er){} } },250); }
+});
+function keepFilters(){ const open=$("#filters")&&$("#filters").classList.contains("open"); S.limit=48; renderView(); if(open){ $("#filters").classList.add("open"); $("#scrim").classList.add("on"); } }
+document.addEventListener("submit",async e=>{ e.preventDefault();
+  if(e.target.id==="loginForm"){ const er=$("#lgErr"); try{ await window.LEPP_RT.auth.signIn($("#lgEmail").value.trim(),$("#lgPw").value); location.reload(); }catch(x){ er.innerHTML=`<div class="msg bad">${esc(x&&x.message||"Sign-in failed. Check your email and password.")}</div>`; } return; } if(e.target.id==="srch"){ S.q=$("#q").value; $("#q").blur(); go("search"); } if(e.target.id==="coForm") placeOrder(); });
+let qT; $("#q").addEventListener("input",e=>{ clearTimeout(qT); qT=setTimeout(()=>{ S.q=e.target.value; S.limit=48; if(S.q.trim().length>1) go("search"); else if(route()==="search") renderView(); },220); });
+$("#cartBtn").onclick=openCart; $("#mcartBtn").onclick=openCart; $("#fulBtn").onclick=openFul; $("#scrim").onclick=closeAll;
+$("#browseBtn").onclick=()=>{ const m=$("#mega"); m.hidden=!m.hidden; $("#browseBtn").setAttribute("aria-expanded",String(!m.hidden)); };
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeAll(); $("#mega").hidden=true; $("#browseBtn").setAttribute("aria-expanded","false"); } });
+
+/* ============ BOOT ============ */
+$("#yr").textContent=new Date().getFullYear();
+rebuild(); renderView(); initCloud();
+</script>
+
+</body>
+</html>

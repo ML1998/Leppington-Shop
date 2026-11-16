@@ -1,0 +1,6 @@
+# Copy to .dev.vars for local testing with `npm run dev`. Never commit the real file.
+SUPABASE_URL=https://YOUR-PROJECT-ID.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+SQUARE_ACCESS_TOKEN=your-square-sandbox-access-token
+SQUARE_LOCATION_ID=your-square-location-id
+SQUARE_ENV=sandbox
