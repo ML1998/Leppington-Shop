@@ -3,8 +3,8 @@
 (function () {
   var C = window.LEPP_CONFIG || {};
   var configured = window.supabase && C.supabaseUrl && C.supabaseAnonKey && !/YOUR-/.test(C.supabaseUrl + C.supabaseAnonKey);
-  // Without Supabase the site runs as a demo with the starter range; orders stay on the customer's device.
-  if (!configured) { console.info("Demo mode: add your Supabase details to config.js to go live."); return; }
+  // Without Supabase: show the full catalogue from catalog/catalog.json; orders stay on the customer's device.
+  if (!configured) { window.LEPP_STATIC_CATALOG = "catalog/catalog.json"; return; }
   window.LEPP_HOSTED = true;
   // Online card payments need the checkout server (Cloudflare). On GitHub Pages leave checkoutServer false.
   if (C.checkoutServer && C.square && C.square.appId && C.square.locationId) window.LEPP_SQUARE = C.square;

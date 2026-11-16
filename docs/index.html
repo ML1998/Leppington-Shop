@@ -1469,7 +1469,7 @@ function loadImport(){
 async function initCloud(){
   try{
     const RT=window.LEPP_RT;
-    if(!RT||!RT.use) return;
+    if(!RT||!RT.use){ if(!HOSTED&&window.LEPP_STATIC_CATALOG){ IMPORT_META={url:window.LEPP_STATIC_CATALOG}; loadImport(); } return; }
     db=await RT.use("db"); if(!db) return;
     db.doc("settings/store").onSnapshot(s=>{ CFG=mergeCfg(s.exists?s.data():null); rebuild(); softRender(); },()=>{});
     db.collection("products").onSnapshot(snap=>{ const o={}; snap.docs.forEach(d=>o[d.id]=d.data()); OV=o; rebuild(); softRender(); },()=>{});

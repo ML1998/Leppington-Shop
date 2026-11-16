@@ -4,7 +4,7 @@
 
 The website is in the `docs` folder. GitHub Pages serves it: Settings → Pages → Deploy from a branch → `main` / `docs`.
 
-- As uploaded it runs in **demo mode**: the 75 starter products, with orders kept on the customer's device.
+- As uploaded it runs in **catalogue mode**: all 5,789 products from `docs/catalog`, with orders kept on the customer's device and no admin.
 - Put your Supabase URL and anon key in `docs/config.js` (keep `checkoutServer: false`) and it goes **live**: the full catalogue, the admin, and real orders paid on delivery, at the counter or by PayID.
 - Square card payments need the checkout server, so they arrive with the move to Cloudflare Pages (below). When you move, set `checkoutServer: true`.
 
